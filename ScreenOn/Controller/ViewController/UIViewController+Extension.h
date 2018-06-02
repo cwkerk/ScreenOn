@@ -8,6 +8,12 @@
 
 #import <UIKit/UIKit.h>
 
-@interface UIViewController ()
+@interface UIViewController (ext)
+
+
+
+@end
+
+@implementation UIViewController (ext)
 
 @end
