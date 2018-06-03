@@ -8,6 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		29656812094017C4C64132D9 /* libPods-ScreenOnUITests.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 1475FAF18998C274EA54E64E /* libPods-ScreenOnUITests.a */; };
+		721816D620C382AD00207647 /* NSDate+ext.m in Sources */ = {isa = PBXBuildFile; fileRef = 721816D520C382AD00207647 /* NSDate+ext.m */; };
 		722202DA20C2BC6B00B7C77C /* FacebookViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 722202D920C2BC6B00B7C77C /* FacebookViewController.m */; };
 		72EF357A20C2B2920047B935 /* NSPersistentStoreCoordinator+ext.m in Sources */ = {isa = PBXBuildFile; fileRef = 72EF357820C2B2920047B935 /* NSPersistentStoreCoordinator+ext.m */; };
 		72EF357D20C2B2D50047B935 /* CoreDataManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 72EF357B20C2B2D50047B935 /* CoreDataManager.m */; };
@@ -49,6 +50,8 @@
 		1C932B0D1315EA8AC86029AC /* Pods-ScreenOn.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-ScreenOn.release.xcconfig"; path = "Pods/Target Support Files/Pods-ScreenOn/Pods-ScreenOn.release.xcconfig"; sourceTree = "<group>"; };
 		4E30B5E10A9575D7DECEAF1D /* Pods-ScreenOnTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-ScreenOnTests.debug.xcconfig"; path = "Pods/Target Support Files/Pods-ScreenOnTests/Pods-ScreenOnTests.debug.xcconfig"; sourceTree = "<group>"; };
 		673FC7D1314B7AFCB444DEDB /* Pods-ScreenOn.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-ScreenOn.debug.xcconfig"; path = "Pods/Target Support Files/Pods-ScreenOn/Pods-ScreenOn.debug.xcconfig"; sourceTree = "<group>"; };
+		721816D420C382AD00207647 /* NSDate+ext.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "NSDate+ext.h"; sourceTree = "<group>"; };
+		721816D520C382AD00207647 /* NSDate+ext.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = "NSDate+ext.m"; sourceTree = "<group>"; };
 		722202D820C2BC6B00B7C77C /* FacebookViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = FacebookViewController.h; sourceTree = "<group>"; };
 		722202D920C2BC6B00B7C77C /* FacebookViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = FacebookViewController.m; sourceTree = "<group>"; };
 		72EF357820C2B2920047B935 /* NSPersistentStoreCoordinator+ext.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSPersistentStoreCoordinator+ext.m"; sourceTree = "<group>"; };
@@ -113,6 +116,15 @@
 				1475FAF18998C274EA54E64E /* libPods-ScreenOnUITests.a */,
 			);
 			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		721816D220C3822800207647 /* Extension */ = {
+			isa = PBXGroup;
+			children = (
+				721816D420C382AD00207647 /* NSDate+ext.h */,
+				721816D520C382AD00207647 /* NSDate+ext.m */,
+			);
+			path = Extension;
 			sourceTree = "<group>";
 		};
 		722202D620C2BBDA00B7C77C /* View */ = {
@@ -218,6 +230,7 @@
 			children = (
 				72EE644720BAE7B30019AC72 /* Datastore */,
 				72EE644620BAE7A40019AC72 /* Device Util */,
+				721816D220C3822800207647 /* Extension */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -467,6 +480,7 @@
 			files = (
 				72EF357D20C2B2D50047B935 /* CoreDataManager.m in Sources */,
 				72EF358320C2B3270047B935 /* CaptureManager.m in Sources */,
+				721816D620C382AD00207647 /* NSDate+ext.m in Sources */,
 				722202DA20C2BC6B00B7C77C /* FacebookViewController.m in Sources */,
 				72EF357A20C2B2920047B935 /* NSPersistentStoreCoordinator+ext.m in Sources */,
 				72F04C2120BAA45E00DA34D2 /* ScreenOn.xcdatamodeld in Sources */,

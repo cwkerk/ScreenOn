@@ -16,17 +16,15 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-    FBSDKLoginButton *loginButton = [[FBSDKLoginButton alloc] init];
-    loginButton.center = self.view.center;
-    loginButton.readPermissions = @[@"public_profile", @"email"];
-    [self.view addSubview:loginButton];
-    /*
-     
-     if ([FBSDKAccessToken currentAccessToken]) {
-     // User is logged in, do work such as go to next view controller.
-     }
-     
-     */
+    if ([FBSDKAccessToken currentAccessTokenIsActive]) {
+        NSLog(@"Current user is %@", [FBSDKProfile currentProfile].name);
+        NSLog(@"Current token expires at %@", [[FBSDKAccessToken currentAccessToken].expirationDate toStringForFormat:@"dd/MM/yyyy hh:mm:ss a"]);
+    } else {
+        FBSDKLoginButton *loginButton = [[FBSDKLoginButton alloc] init];
+        loginButton.center = self.view.center;
+        loginButton.readPermissions = @[@"public_profile", @"email"];
+        [self.view addSubview:loginButton];
+    }
 }
 
 @end
