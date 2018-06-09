@@ -9,7 +9,8 @@
 /* Begin PBXBuildFile section */
 		29656812094017C4C64132D9 /* libPods-ScreenOnUITests.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 1475FAF18998C274EA54E64E /* libPods-ScreenOnUITests.a */; };
 		721816D620C382AD00207647 /* NSDate+ext.m in Sources */ = {isa = PBXBuildFile; fileRef = 721816D520C382AD00207647 /* NSDate+ext.m */; };
-		722202DA20C2BC6B00B7C77C /* FacebookViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 722202D920C2BC6B00B7C77C /* FacebookViewController.m */; };
+		722202DA20C2BC6B00B7C77C /* LoginViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 722202D920C2BC6B00B7C77C /* LoginViewController.m */; };
+		72CFF57B20CBB4780054C564 /* google.plist in Resources */ = {isa = PBXBuildFile; fileRef = 72CFF57A20CBB4780054C564 /* google.plist */; };
 		72EF357A20C2B2920047B935 /* NSPersistentStoreCoordinator+ext.m in Sources */ = {isa = PBXBuildFile; fileRef = 72EF357820C2B2920047B935 /* NSPersistentStoreCoordinator+ext.m */; };
 		72EF357D20C2B2D50047B935 /* CoreDataManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 72EF357B20C2B2D50047B935 /* CoreDataManager.m */; };
 		72EF358320C2B3270047B935 /* CaptureManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 72EF358220C2B3270047B935 /* CaptureManager.m */; };
@@ -52,8 +53,9 @@
 		673FC7D1314B7AFCB444DEDB /* Pods-ScreenOn.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-ScreenOn.debug.xcconfig"; path = "Pods/Target Support Files/Pods-ScreenOn/Pods-ScreenOn.debug.xcconfig"; sourceTree = "<group>"; };
 		721816D420C382AD00207647 /* NSDate+ext.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "NSDate+ext.h"; sourceTree = "<group>"; };
 		721816D520C382AD00207647 /* NSDate+ext.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = "NSDate+ext.m"; sourceTree = "<group>"; };
-		722202D820C2BC6B00B7C77C /* FacebookViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = FacebookViewController.h; sourceTree = "<group>"; };
-		722202D920C2BC6B00B7C77C /* FacebookViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = FacebookViewController.m; sourceTree = "<group>"; };
+		722202D820C2BC6B00B7C77C /* LoginViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = LoginViewController.h; sourceTree = "<group>"; };
+		722202D920C2BC6B00B7C77C /* LoginViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = LoginViewController.m; sourceTree = "<group>"; };
+		72CFF57A20CBB4780054C564 /* google.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = google.plist; sourceTree = "<group>"; };
 		72EF357820C2B2920047B935 /* NSPersistentStoreCoordinator+ext.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSPersistentStoreCoordinator+ext.m"; sourceTree = "<group>"; };
 		72EF357920C2B2920047B935 /* NSPersistentStoreCoordinator+ext.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSPersistentStoreCoordinator+ext.h"; sourceTree = "<group>"; };
 		72EF357B20C2B2D50047B935 /* CoreDataManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CoreDataManager.m; sourceTree = "<group>"; };
@@ -148,8 +150,16 @@
 			isa = PBXGroup;
 			children = (
 				72F04C2720BAA46000DA34D2 /* Info.plist */,
+				72CFF57A20CBB4780054C564 /* google.plist */,
 			);
 			path = Config;
+			sourceTree = "<group>";
+		};
+		72CFF57C20CBB5340054C564 /* Support */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Support;
 			sourceTree = "<group>";
 		};
 		72EE644620BAE7A40019AC72 /* Device Util */ = {
@@ -231,6 +241,7 @@
 				72EE644720BAE7B30019AC72 /* Datastore */,
 				72EE644620BAE7A40019AC72 /* Device Util */,
 				721816D220C3822800207647 /* Extension */,
+				72CFF57C20CBB5340054C564 /* Support */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -250,8 +261,8 @@
 			isa = PBXGroup;
 			children = (
 				72F1F11820BC52F900ACF7BA /* UIViewController+Extension.h */,
-				722202D820C2BC6B00B7C77C /* FacebookViewController.h */,
-				722202D920C2BC6B00B7C77C /* FacebookViewController.m */,
+				722202D820C2BC6B00B7C77C /* LoginViewController.h */,
+				722202D920C2BC6B00B7C77C /* LoginViewController.m */,
 			);
 			path = ViewController;
 			sourceTree = "<group>";
@@ -379,6 +390,7 @@
 				72F04C2620BAA46000DA34D2 /* LaunchScreen.storyboard in Resources */,
 				72F04C2320BAA46000DA34D2 /* Assets.xcassets in Resources */,
 				72F04C1E20BAA45E00DA34D2 /* Main.storyboard in Resources */,
+				72CFF57B20CBB4780054C564 /* google.plist in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -425,11 +437,15 @@
 			inputPaths = (
 				"${SRCROOT}/Pods/Target Support Files/Pods-ScreenOn/Pods-ScreenOn-resources.sh",
 				"${PODS_ROOT}/FBSDKCoreKit/FacebookSDKStrings.bundle",
+				"${PODS_ROOT}/GTMOAuth2/Source/Touch/GTMOAuth2ViewTouch.xib",
+				"${PODS_ROOT}/GoogleSignIn/Resources/GoogleSignIn.bundle",
 				"${PODS_ROOT}/SAMKeychain/Support/SAMKeychain.bundle",
 			);
 			name = "[CP] Copy Pods Resources";
 			outputPaths = (
 				"${TARGET_BUILD_DIR}/${UNLOCALIZED_RESOURCES_FOLDER_PATH}/FacebookSDKStrings.bundle",
+				"${TARGET_BUILD_DIR}/${UNLOCALIZED_RESOURCES_FOLDER_PATH}/GTMOAuth2ViewTouch.nib",
+				"${TARGET_BUILD_DIR}/${UNLOCALIZED_RESOURCES_FOLDER_PATH}/GoogleSignIn.bundle",
 				"${TARGET_BUILD_DIR}/${UNLOCALIZED_RESOURCES_FOLDER_PATH}/SAMKeychain.bundle",
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -483,7 +499,7 @@
 				72EF357D20C2B2D50047B935 /* CoreDataManager.m in Sources */,
 				72EF358320C2B3270047B935 /* CaptureManager.m in Sources */,
 				721816D620C382AD00207647 /* NSDate+ext.m in Sources */,
-				722202DA20C2BC6B00B7C77C /* FacebookViewController.m in Sources */,
+				722202DA20C2BC6B00B7C77C /* LoginViewController.m in Sources */,
 				72EF357A20C2B2920047B935 /* NSPersistentStoreCoordinator+ext.m in Sources */,
 				72F04C2120BAA45E00DA34D2 /* ScreenOn.xcdatamodeld in Sources */,
 				72F04C2920BAA46000DA34D2 /* main.m in Sources */,
@@ -593,7 +609,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 11.3;
+				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
 				MTL_ENABLE_DEBUG_INFO = YES;
 				ONLY_ACTIVE_ARCH = YES;
 				SDKROOT = iphoneos;
@@ -645,7 +661,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 11.3;
+				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
 				MTL_ENABLE_DEBUG_INFO = NO;
 				SDKROOT = iphoneos;
 				VALIDATE_PRODUCT = YES;

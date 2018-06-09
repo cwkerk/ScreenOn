@@ -17,6 +17,9 @@
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions {
     // Override point for customization after application launch.
     [[FBSDKApplicationDelegate sharedInstance] application:application didFinishLaunchingWithOptions:launchOptions];
+    [[GIDSignIn sharedInstance] setClientID:@"997117142453-g07648sd279ntfnbm03vbddnkj46dsoq.apps.googleusercontent.com"];
+    [[GIDSignIn sharedInstance] setDelegate:self];
+    [GADMobileAds configureWithApplicationID:@"ca-app-pub-1749500499268006~6194951492"];
     return YES;
 }
 
@@ -53,6 +56,10 @@
     BOOL handled = [[FBSDKApplicationDelegate sharedInstance] application:application openURL:url sourceApplication:sourceApplication annotation:annotation];
     // Add any custom logic here.
     return handled;
+}
+
+- (void)signIn:(GIDSignIn *)signIn didSignInForUser:(GIDGoogleUser *)user withError:(NSError *)error {
+    // Getting user profiles here
 }
 
 @end
