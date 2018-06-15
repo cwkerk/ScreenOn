@@ -14,6 +14,12 @@
 
 @implementation AdmobViewController
 
+- (void)viewWillDisappear:(BOOL)animated {
+    [super viewWillDisappear:animated];
+}
+
+#pragma public functions
+
 - (void)addBannerAdmobWithAdID:(NSString * _Nonnull)adID { // @"ca-app-pub-1749500499268006/6482697858"
     self.bannerAdView = [[GADBannerView alloc] initWithAdSize:kGADAdSizeSmartBannerPortrait];
     [self.bannerAdView setAdUnitID:adID];
@@ -30,8 +36,6 @@
     request.testDevices = @[deviceID];
     [self.bannerAdView loadRequest:request];
 }
-
-#pragma public functions
 
 - (void)addInstitialAdmobWithAdID:(NSString * _Nonnull)adID { // @"ca-app-pub-1749500499268006/6074955007"
     self.interstitialAdView = [[GADInterstitial alloc] initWithAdUnitID:adID];

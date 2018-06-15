@@ -46,10 +46,10 @@
             </objects>
             <point key="canvasLocation" x="-966" y="-860"/>
         </scene>
-        <!--Item-->
+        <!--Top Rate View Controller-->
         <scene sceneID="9ox-IR-m5A">
             <objects>
-                <viewController id="8xc-tO-FZl" sceneMemberID="viewController">
+                <viewController id="8xc-tO-FZl" customClass="TopRateViewController" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="2ha-nh-NrF"/>
                         <viewControllerLayoutGuide type="bottom" id="wGc-DQ-0rD"/>
@@ -59,7 +59,7 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                     </view>
-                    <tabBarItem key="tabBarItem" title="Item" id="KNY-M6-VqC"/>
+                    <tabBarItem key="tabBarItem" title="" systemItem="topRated" id="KNY-M6-VqC"/>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="6S3-Yl-MuT" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
@@ -86,7 +86,7 @@
         <!--Tab Bar Controller-->
         <scene sceneID="7F3-Qw-uFp">
             <objects>
-                <tabBarController automaticallyAdjustsScrollViewInsets="NO" id="tAA-sy-KSM" sceneMemberID="viewController">
+                <tabBarController automaticallyAdjustsScrollViewInsets="NO" id="tAA-sy-KSM" customClass="TabBarController" sceneMemberID="viewController">
                     <toolbarItems/>
                     <tabBar key="tabBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="Ouo-4r-Xp9">
                         <rect key="frame" x="0.0" y="0.0" width="1000" height="1000"/>
@@ -95,7 +95,7 @@
                     </tabBar>
                     <connections>
                         <segue destination="8xc-tO-FZl" kind="relationship" relationship="viewControllers" id="r2h-ID-zvh"/>
-                        <segue destination="UyI-4Y-WSR" kind="relationship" relationship="viewControllers" id="Nr5-Xy-NHz"/>
+                        <segue destination="VXb-yv-zTl" kind="relationship" relationship="viewControllers" id="Nr5-Xy-NHz"/>
                         <segue destination="1Gj-5T-okq" kind="relationship" relationship="viewControllers" id="Wnm-BF-EmO"/>
                     </connections>
                 </tabBarController>
@@ -103,10 +103,10 @@
             </objects>
             <point key="canvasLocation" x="-46" y="-860"/>
         </scene>
-        <!--Item-->
+        <!--Downloads-->
         <scene sceneID="iHb-12-6Zy">
             <objects>
-                <viewController id="UyI-4Y-WSR" sceneMemberID="viewController">
+                <viewController id="UyI-4Y-WSR" customClass="DownloadsViewController" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="nCa-Yp-hqW"/>
                         <viewControllerLayoutGuide type="bottom" id="KHP-XV-Dlg"/>
@@ -114,15 +114,29 @@
                     <view key="view" contentMode="scaleToFill" id="64t-6Q-Lc5">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="kji-AS-Puy">
+                                <rect key="frame" x="0.0" y="64" width="375" height="504"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                            </tableView>
+                        </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <constraints>
+                            <constraint firstAttribute="trailing" secondItem="kji-AS-Puy" secondAttribute="trailing" id="IYi-j1-Qtw"/>
+                            <constraint firstItem="KHP-XV-Dlg" firstAttribute="top" secondItem="kji-AS-Puy" secondAttribute="bottom" constant="50" id="PGB-3K-cQ5"/>
+                            <constraint firstItem="kji-AS-Puy" firstAttribute="leading" secondItem="64t-6Q-Lc5" secondAttribute="leading" id="wu4-kt-mgy"/>
+                            <constraint firstItem="kji-AS-Puy" firstAttribute="top" secondItem="nCa-Yp-hqW" secondAttribute="bottom" id="ycE-iE-gNa"/>
+                        </constraints>
                     </view>
-                    <tabBarItem key="tabBarItem" title="Item" id="zwN-C7-Mhi"/>
+                    <navigationItem key="navigationItem" title="Downloads" id="AQg-2H-aew">
+                        <barButtonItem key="rightBarButtonItem" systemItem="search" id="JZw-fc-8YQ"/>
+                    </navigationItem>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="mrl-Pv-zF3" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-47" y="107"/>
+            <point key="canvasLocation" x="-47" y="857"/>
         </scene>
-        <!--Item-->
+        <!--View Controller-->
         <scene sceneID="qgS-m0-y0I">
             <objects>
                 <viewController id="1Gj-5T-okq" sceneMemberID="viewController">
@@ -135,11 +149,30 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                     </view>
-                    <tabBarItem key="tabBarItem" title="Item" id="Tee-VS-gbk"/>
+                    <tabBarItem key="tabBarItem" systemItem="more" id="Tee-VS-gbk"/>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="CLM-K6-Q3R" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="830" y="107"/>
+            <point key="canvasLocation" x="898" y="107"/>
+        </scene>
+        <!--Navigation Controller-->
+        <scene sceneID="8ZH-Cl-Nng">
+            <objects>
+                <navigationController automaticallyAdjustsScrollViewInsets="NO" id="VXb-yv-zTl" sceneMemberID="viewController">
+                    <tabBarItem key="tabBarItem" systemItem="downloads" id="zwN-C7-Mhi"/>
+                    <toolbarItems/>
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="eeT-LV-zh8">
+                        <rect key="frame" x="0.0" y="20" width="375" height="44"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                    </navigationBar>
+                    <nil name="viewControllers"/>
+                    <connections>
+                        <segue destination="UyI-4Y-WSR" kind="relationship" relationship="rootViewController" id="h56-sg-Biz"/>
+                    </connections>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="7iC-YF-IRq" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-47.200000000000003" y="106.59670164917542"/>
         </scene>
     </scenes>
 </document>

@@ -19,6 +19,9 @@
 		72EF358320C2B3270047B935 /* CaptureManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 72EF358220C2B3270047B935 /* CaptureManager.m */; };
 		72EFAFE120D39A3E00FF5352 /* AdmobViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 72EFAFE020D39A3E00FF5352 /* AdmobViewController.m */; };
 		72EFAFE420D39ACA00FF5352 /* UIViewController+ext.m in Sources */ = {isa = PBXBuildFile; fileRef = 72EFAFE320D39ACA00FF5352 /* UIViewController+ext.m */; };
+		72EFD5AD20D3B31C00B1E3AA /* DownloadsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 72EFD5AC20D3B31C00B1E3AA /* DownloadsViewController.m */; };
+		72EFD5B120D3BAAD00B1E3AA /* TabBarController.m in Sources */ = {isa = PBXBuildFile; fileRef = 72EFD5B020D3BAAD00B1E3AA /* TabBarController.m */; };
+		72EFD5B420D3BDBB00B1E3AA /* TopRateViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 72EFD5B320D3BDBB00B1E3AA /* TopRateViewController.m */; };
 		72F04C1820BAA45E00DA34D2 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 72F04C1720BAA45E00DA34D2 /* AppDelegate.m */; };
 		72F04C1E20BAA45E00DA34D2 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 72F04C1C20BAA45E00DA34D2 /* Main.storyboard */; };
 		72F04C2120BAA45E00DA34D2 /* ScreenOn.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 72F04C1F20BAA45E00DA34D2 /* ScreenOn.xcdatamodeld */; };
@@ -77,6 +80,12 @@
 		72EFAFE020D39A3E00FF5352 /* AdmobViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AdmobViewController.m; sourceTree = "<group>"; };
 		72EFAFE220D39ACA00FF5352 /* UIViewController+ext.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "UIViewController+ext.h"; sourceTree = "<group>"; };
 		72EFAFE320D39ACA00FF5352 /* UIViewController+ext.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = "UIViewController+ext.m"; sourceTree = "<group>"; };
+		72EFD5AB20D3B31C00B1E3AA /* DownloadsViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = DownloadsViewController.h; sourceTree = "<group>"; };
+		72EFD5AC20D3B31C00B1E3AA /* DownloadsViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = DownloadsViewController.m; sourceTree = "<group>"; };
+		72EFD5AF20D3BAAD00B1E3AA /* TabBarController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = TabBarController.h; sourceTree = "<group>"; };
+		72EFD5B020D3BAAD00B1E3AA /* TabBarController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = TabBarController.m; sourceTree = "<group>"; };
+		72EFD5B220D3BDBB00B1E3AA /* TopRateViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = TopRateViewController.h; sourceTree = "<group>"; };
+		72EFD5B320D3BDBB00B1E3AA /* TopRateViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = TopRateViewController.m; sourceTree = "<group>"; };
 		72F04C1320BAA45E00DA34D2 /* ScreenOn.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = ScreenOn.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		72F04C1620BAA45E00DA34D2 /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
 		72F04C1720BAA45E00DA34D2 /* AppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
@@ -227,6 +236,15 @@
 			path = Datastore;
 			sourceTree = "<group>";
 		};
+		72EFD5AE20D3BA6A00B1E3AA /* ContainerController */ = {
+			isa = PBXGroup;
+			children = (
+				72EFD5AF20D3BAAD00B1E3AA /* TabBarController.h */,
+				72EFD5B020D3BAAD00B1E3AA /* TabBarController.m */,
+			);
+			path = ContainerController;
+			sourceTree = "<group>";
+		};
 		72F04C0A20BAA45E00DA34D2 = {
 			isa = PBXGroup;
 			children = (
@@ -295,8 +313,9 @@
 			isa = PBXGroup;
 			children = (
 				72AB4C1E20D34B2800838B96 /* AppDelegate */,
-				72F04C2820BAA46000DA34D2 /* main.m */,
+				72EFD5AE20D3BA6A00B1E3AA /* ContainerController */,
 				72F1F11720BC52BD00ACF7BA /* ViewController */,
+				72F04C2820BAA46000DA34D2 /* main.m */,
 			);
 			path = Controller;
 			sourceTree = "<group>";
@@ -310,6 +329,10 @@
 				72EFAFE020D39A3E00FF5352 /* AdmobViewController.m */,
 				722202D820C2BC6B00B7C77C /* LoginViewController.h */,
 				722202D920C2BC6B00B7C77C /* LoginViewController.m */,
+				72EFD5AB20D3B31C00B1E3AA /* DownloadsViewController.h */,
+				72EFD5AC20D3B31C00B1E3AA /* DownloadsViewController.m */,
+				72EFD5B220D3BDBB00B1E3AA /* TopRateViewController.h */,
+				72EFD5B320D3BDBB00B1E3AA /* TopRateViewController.m */,
 			);
 			path = ViewController;
 			sourceTree = "<group>";
@@ -545,8 +568,10 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				72EFD5B420D3BDBB00B1E3AA /* TopRateViewController.m in Sources */,
 				72EFAFE420D39ACA00FF5352 /* UIViewController+ext.m in Sources */,
 				72AB4C2B20D35AD500838B96 /* LAContext+ext.m in Sources */,
+				72EFD5AD20D3B31C00B1E3AA /* DownloadsViewController.m in Sources */,
 				72EF357D20C2B2D50047B935 /* CoreDataManager.m in Sources */,
 				72EF358320C2B3270047B935 /* CaptureManager.m in Sources */,
 				72AB4C2520D350F800838B96 /* UserNotificationManager.m in Sources */,
@@ -556,6 +581,7 @@
 				72EF357A20C2B2920047B935 /* NSPersistentStoreCoordinator+ext.m in Sources */,
 				72F04C2120BAA45E00DA34D2 /* ScreenOn.xcdatamodeld in Sources */,
 				72F04C2920BAA46000DA34D2 /* main.m in Sources */,
+				72EFD5B120D3BAAD00B1E3AA /* TabBarController.m in Sources */,
 				72F04C1820BAA45E00DA34D2 /* AppDelegate.m in Sources */,
 				72AB4C2E20D35FF800838B96 /* UIView+ext.m in Sources */,
 			);
