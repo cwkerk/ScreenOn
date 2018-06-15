@@ -17,7 +17,7 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     [self addInstitialAdmobWithAdID:@"ca-app-pub-1749500499268006/6074955007"];
-    [self startInstitialAdmobWithdeviceID:@"763ea513d683f24535cbd93b1d0e2e7d"];
+    [self startInstitialAdmob];
 }
 
 - (void)didReceiveMemoryWarning {

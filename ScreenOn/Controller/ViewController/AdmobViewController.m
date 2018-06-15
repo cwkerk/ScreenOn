@@ -31,10 +31,8 @@
     [self.view addConstraint:[NSLayoutConstraint constraintWithItem:self.bannerAdView attribute:NSLayoutAttributeBottom relatedBy:NSLayoutRelationEqual toItem:self.bottomLayoutGuide attribute:NSLayoutAttributeTop multiplier:1 constant:0]];
 }
 
-- (void)startBannerAdmobWithdeviceID:(NSString * _Nullable)deviceID { // @"763ea513d683f24535cbd93b1d0e2e7d"
-    GADRequest *request = [GADRequest request];
-    request.testDevices = @[deviceID];
-    [self.bannerAdView loadRequest:request];
+- (void)startBannerAdmob { // @"763ea513d683f24535cbd93b1d0e2e7d"
+    [self.bannerAdView loadRequest:[GADRequest request]];
 }
 
 - (void)addInstitialAdmobWithAdID:(NSString * _Nonnull)adID { // @"ca-app-pub-1749500499268006/6074955007"
@@ -42,10 +40,8 @@
     self.interstitialAdView.delegate = self;
 }
 
-- (void)startInstitialAdmobWithdeviceID:(NSString * _Nullable)deviceID { // @"763ea513d683f24535cbd93b1d0e2e7d"
-    GADRequest *request = [GADRequest request];
-    request.testDevices = @[deviceID]; // the line below is esential for testing
-    [self.interstitialAdView loadRequest:request];
+- (void)startInstitialAdmob { // @"763ea513d683f24535cbd93b1d0e2e7d"
+    [self.interstitialAdView loadRequest:[GADRequest request]];
     [self.view fadeOutWithDuration:1.0 onCompletion:^(BOOL success) {
         if (success) {
             [self.view setHidden:YES];
@@ -65,7 +61,7 @@
     // TODO: failure handling, either reload or ...
     NSLog(@"banner Ad is failed to load due to %@", error.localizedDescription);
     dispatch_after(dispatch_time(DISPATCH_TIME_NOW, (int64_t)(20 * NSEC_PER_SEC)), dispatch_get_main_queue(), ^{
-        [self startBannerAdmobWithdeviceID:@"763ea513d683f24535cbd93b1d0e2e7d"];
+        [self startBannerAdmob];
     });
 }
 

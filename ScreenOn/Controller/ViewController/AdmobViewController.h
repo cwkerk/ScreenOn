@@ -20,8 +20,8 @@
 
 - (void)addInstitialAdmobWithAdID:(NSString * _Nonnull)adID;
 
-- (void)startBannerAdmobWithdeviceID:(NSString * _Nullable)deviceID;
+- (void)startBannerAdmob;
 
-- (void)startInstitialAdmobWithdeviceID:(NSString * _Nullable)deviceID;
+- (void)startInstitialAdmob;
 
 @end
