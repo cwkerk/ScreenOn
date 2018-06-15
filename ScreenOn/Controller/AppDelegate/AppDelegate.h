@@ -12,6 +12,7 @@
 #import <GoogleSignIn/GoogleSignIn.h>
 #import <GoogleMobileAds/GoogleMobileAds.h>
 #import "CoreDataManager.h"
+#import "UserNotificationManager.h"
 
 @interface AppDelegate : UIResponder <UIApplicationDelegate, GIDSignInDelegate>
 

@@ -9,14 +9,12 @@
 #import <FBSDKCoreKit/FBSDKCoreKit.h>
 #import <FBSDKLoginKit/FBSDKLoginKit.h>
 #import <GoogleSignIn/GoogleSignIn.h>
-#import <GoogleMobileAds/GoogleMobileAds.h>
-#import <UIKit/UIKit.h>
+#import "AdmobViewController.h"
 #import "NSDate+ext.h"
+#import "LAContext+ext.h"
 
-@interface LoginViewController : UIViewController <GIDSignInUIDelegate, GADBannerViewDelegate>
+@interface LoginViewController : AdmobViewController <GIDSignInUIDelegate>
 
 @property (weak, nonatomic) IBOutlet GIDSignInButton *googleSignInButton;
-
-@property(nonatomic, strong) GADBannerView *admocBannerView;
 
 @end

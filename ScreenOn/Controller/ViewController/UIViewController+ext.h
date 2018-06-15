@@ -1,8 +1,8 @@
 //
-//  UIViewController+UIViewControllerExtension.h
+//  UIViewController+ext.h
 //  ScreenOn
 //
-//  Created by Chin Wee Kerk on 28/05/2018.
+//  Created by Chin Wee Kerk on 15/06/2018.
 //  Copyright © 2018 Chin Wee Kerk. All rights reserved.
 //
 
@@ -10,10 +10,6 @@
 
 @interface UIViewController (ext)
 
-
-
-@end
-
-@implementation UIViewController (ext)
+- (void)x;
 
 @end
