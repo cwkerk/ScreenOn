@@ -25,6 +25,13 @@
     [[GIDSignIn sharedInstance] setUiDelegate:self];
     [self addBannerAdmobWithAdID:@"ca-app-pub-1749500499268006/6482697858"];
     [self startBannerAdmobWithdeviceID:@"763ea513d683f24535cbd93b1d0e2e7d"];
+    [PACConsentInformation.sharedInstance requestConsentInfoUpdateForPublisherIdentifiers:@[ @"pub-1749500499268006" ] completionHandler:^(NSError *_Nullable error) {
+        if (error) {
+            NSLog(@"Consent is failed due to %@", error.localizedDescription);
+        } else {
+            NSLog(@"Consent is completed");
+        }
+    }];
 }
 
 - (void)viewWillAppear:(BOOL)animated {

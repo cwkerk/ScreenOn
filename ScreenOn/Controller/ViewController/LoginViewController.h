@@ -8,6 +8,7 @@
 
 #import <FBSDKLoginKit/FBSDKLoginKit.h>
 #import <GoogleSignIn/GoogleSignIn.h>
+#import <PersonalizedAdConsent/PersonalizedAdConsent.h>
 #import "AdmobViewController.h"
 #import "NSDate+ext.h"
 #import "LAContext+ext.h"
