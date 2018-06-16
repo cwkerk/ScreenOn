@@ -12,7 +12,7 @@
 
 - (void)showContentViewController:(UIViewController* _Nonnull)vc underRect:(CGRect)rect inView:(UIView * _Nonnull)view {
     [self addChildViewController:vc];
-    [vc.view setBounds:rect];
+    [vc.view setFrame:rect];
     [view addSubview: vc.view];
     [vc didMoveToParentViewController:self];
 }
@@ -32,8 +32,8 @@
     // animate the swapping of two viewcontrollers
     [self transitionFromViewController:from toViewController:to duration:0.5 options:opt animations:^{
         // animate the swapping of two view frames
-        [to.view setBounds:from.view.bounds];
-        [from.view setBounds:CGRectZero];
+        [to.view setFrame:from.view.frame];
+        [from.view setFrame:CGRectZero];
     } completion:^(BOOL finished) {
         // notify parent viewcontroller for the completion
         [from removeFromParentViewController];
