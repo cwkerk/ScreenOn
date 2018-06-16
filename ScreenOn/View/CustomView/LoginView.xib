@@ -1,0 +1,63 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="14113" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES">
+    <device id="retina4_7" orientation="portrait">
+        <adaptation id="fullscreen"/>
+    </device>
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14088"/>
+        <capability name="Aspect ratio constraints" minToolsVersion="5.1"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <view contentMode="scaleToFill" id="iN0-l3-epB" customClass="LoginView">
+            <rect key="frame" x="0.0" y="0.0" width="250" height="350"/>
+            <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+            <subviews>
+                <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="t3M-FD-xEq">
+                    <rect key="frame" x="41.5" y="30" width="167" height="167"/>
+                    <constraints>
+                        <constraint firstAttribute="width" secondItem="t3M-FD-xEq" secondAttribute="height" id="6Gc-Ih-bWd"/>
+                    </constraints>
+                </imageView>
+                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="OId-Yw-kPt" customClass="GIDSignInButton">
+                    <rect key="frame" x="20" y="217" width="210" height="48"/>
+                    <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                    <constraints>
+                        <constraint firstAttribute="height" constant="48" id="H2b-QW-Ef0"/>
+                    </constraints>
+                </view>
+                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="zhy-ke-aeP" customClass="FBSDKLoginButton">
+                    <rect key="frame" x="23" y="280" width="204" height="40"/>
+                    <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                    <constraints>
+                        <constraint firstAttribute="height" constant="40" id="CC2-fC-6dK"/>
+                    </constraints>
+                </view>
+            </subviews>
+            <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+            <constraints>
+                <constraint firstItem="t3M-FD-xEq" firstAttribute="centerX" secondItem="iN0-l3-epB" secondAttribute="centerX" id="CP3-gO-cEQ"/>
+                <constraint firstItem="zhy-ke-aeP" firstAttribute="top" secondItem="OId-Yw-kPt" secondAttribute="bottom" constant="15" id="CnP-97-voe"/>
+                <constraint firstAttribute="trailing" secondItem="OId-Yw-kPt" secondAttribute="trailing" constant="20" id="Eic-Sf-bxB"/>
+                <constraint firstItem="OId-Yw-kPt" firstAttribute="top" secondItem="t3M-FD-xEq" secondAttribute="bottom" constant="20" id="JuO-zT-8c0"/>
+                <constraint firstItem="zhy-ke-aeP" firstAttribute="leading" secondItem="iN0-l3-epB" secondAttribute="leading" constant="23" id="XMg-dF-QHm"/>
+                <constraint firstItem="OId-Yw-kPt" firstAttribute="leading" secondItem="iN0-l3-epB" secondAttribute="leading" constant="20" id="aoH-hq-YNc"/>
+                <constraint firstAttribute="bottom" secondItem="zhy-ke-aeP" secondAttribute="bottom" constant="30" id="byq-Hk-Qg9"/>
+                <constraint firstAttribute="trailing" secondItem="zhy-ke-aeP" secondAttribute="trailing" constant="23" id="khP-4i-B2R"/>
+                <constraint firstItem="t3M-FD-xEq" firstAttribute="top" secondItem="iN0-l3-epB" secondAttribute="top" constant="30" id="tsS-e4-4B4"/>
+            </constraints>
+            <nil key="simulatedTopBarMetrics"/>
+            <nil key="simulatedBottomBarMetrics"/>
+            <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
+            <connections>
+                <outlet property="appLogoView" destination="t3M-FD-xEq" id="eZU-Hl-n0J"/>
+                <outlet property="fbLoginBtn" destination="zhy-ke-aeP" id="LKe-Go-Zom"/>
+                <outlet property="gidSigninBtn" destination="OId-Yw-kPt" id="Tfs-8D-kda"/>
+            </connections>
+            <point key="canvasLocation" x="113" y="111.5"/>
+        </view>
+    </objects>
+</document>

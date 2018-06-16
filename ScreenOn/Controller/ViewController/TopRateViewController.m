@@ -16,23 +16,33 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-    [self addInstitialAdmobWithAdID:@"ca-app-pub-1749500499268006/6074955007"];
-    [self startInstitialAdmob];
+    //[self addInstitialAdmobWithAdID:@"ca-app-pub-1749500499268006/6074955007"];
+    //[self startInstitialAdmob];
+    [self addBannerAdmobWithAdID:@"ca-app-pub-1749500499268006/6482697858"];
+    [self startBannerAdmob];
+    UIBarButtonItem *btn = [[UIBarButtonItem alloc] initWithBarButtonSystemItem:UIBarButtonSystemItemRefresh target:self action:@selector(swap:)];
+    [self.navigationItem setRightBarButtonItem:btn];
+    [self.navigationItem setTitle:@"First"];
 }
 
-- (void)didReceiveMemoryWarning {
-    [super didReceiveMemoryWarning];
-    // Dispose of any resources that can be recreated.
+- (void)viewWillAppear:(BOOL)animated {
+    [super viewWillAppear:animated];
+    [self.navigationController setNavigationBarHidden:NO];
+    [self.navigationController setToolbarHidden:YES];
 }
 
-/*
-#pragma mark - Navigation
-
-// In a storyboard-based application, you will often want to do a little preparation before navigation
-- (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
-    // Get the new view controller using [segue destinationViewController].
-    // Pass the selected object to the new view controller.
+- (void)viewDidAppear:(BOOL)animated {
+    [super viewDidAppear:animated];
+    CGRect rectA = CGRectMake(0, 0, self.view.bounds.size.width, self.view.bounds.size.height - 60);
+    DemoAViewController *demoA = [[DemoAViewController alloc] init];
+    [self showContentViewController:demoA underRect:rectA inView:self.view];
+    [self.navigationController setNavigationBarHidden:NO];
 }
-*/
+
+- (void)swap:(UIBarButtonItem *)btn {
+    DemoAViewController *demoA = (DemoAViewController *)self.childViewControllers.firstObject;
+    DemoBViewController *demoB = [[DemoBViewController alloc] init];
+    [self swapContenViewControllersFrom:demoA to:demoB inView:self.view animateWith:UIViewAnimationOptionCurveEaseInOut];
+}
 
 @end

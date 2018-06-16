@@ -11,6 +11,7 @@
 #import <FBSDKCoreKit/FBSDKCoreKit.h>
 #import <GoogleSignIn/GoogleSignIn.h>
 #import <GoogleMobileAds/GoogleMobileAds.h>
+#import <PDKClient.h>
 #import "CoreDataManager.h"
 #import "UserNotificationManager.h"
 

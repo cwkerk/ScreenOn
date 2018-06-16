@@ -16,11 +16,10 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-    FBSDKLoginButton *fbLoginButton = [[FBSDKLoginButton alloc] init];
-    [fbLoginButton setFrame:CGRectMake(0, 0, 190, 44)];
-    fbLoginButton.center = self.view.center;
-    fbLoginButton.readPermissions = @[@"public_profile", @"email"];
-    [self.view addSubview:fbLoginButton];
+    LoginView *loginView = [NSBundle.mainBundle loadNibNamed:@"LoginView" owner:self options:nil].firstObject;
+    [loginView setBounds:CGRectMake(0, 0, 350, 350)];
+    [loginView setCenter:self.view.center];
+    [self.view addSubview:loginView];
     [[GIDSignIn sharedInstance] setDelegate:self];
     [[GIDSignIn sharedInstance] setUiDelegate:self];
     [self addBannerAdmobWithAdID:@"ca-app-pub-1749500499268006/6482697858"];
@@ -42,6 +41,7 @@
     } else if ([[GIDSignIn sharedInstance] hasAuthInKeychain]) {
         [[GIDSignIn sharedInstance] signInSilently];
     } else {
+        return;
         LAContext *context = [[LAContext alloc] init];
         [context authWithPolicy:LAPolicyDeviceOwnerAuthenticationWithBiometrics reason:@"ScreenOn uses Touch ID/Face ID login." onCompleteHandler:^(BOOL success, NSError * _Nullable error) {
             dispatch_async(dispatch_get_main_queue(), ^{

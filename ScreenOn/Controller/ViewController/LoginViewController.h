@@ -10,11 +10,10 @@
 #import <GoogleSignIn/GoogleSignIn.h>
 #import <PersonalizedAdConsent/PersonalizedAdConsent.h>
 #import "AdmobViewController.h"
-#import "NSDate+ext.h"
 #import "LAContext+ext.h"
+#import "LoginView.h"
+#import "NSDate+ext.h"
 
 @interface LoginViewController : AdmobViewController <GIDSignInDelegate, GIDSignInUIDelegate>
-
-@property (weak, nonatomic) IBOutlet GIDSignInButton *googleSignInButton;
 
 @end

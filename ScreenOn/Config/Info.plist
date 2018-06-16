@@ -32,6 +32,14 @@
 				<string>com.googleusercontent.apps.997117142453-g07648sd279ntfnbm03vbddnkj46dsoq</string>
 			</array>
 		</dict>
+        <dict>
+            <key>CFBundleURLName</key>
+            <string></string>
+            <key>CFBundleURLSchemes</key>
+            <array>
+                <string>pdk4972534596330596383</string>
+            </array>
+        </dict>
 	</array>
 	<key>CFBundleVersion</key>
 	<string>1</string>
@@ -45,6 +53,7 @@
 		<string>fb-messenger-share-api</string>
 		<string>fbauth2</string>
 		<string>fbshareextension</string>
+        <string>pinterestsdk.v1</string>
 	</array>
 	<key>LSRequiresIPhoneOS</key>
 	<true/>
@@ -56,6 +65,16 @@
         <true/>
 		<key>NSAllowsArbitraryLoadsInWebContent</key>
 		<true/>
+        <key>NSExceptionDomains</key>
+        <dict>
+            <key>pinit</key>
+            <dict>
+                <key>NSIncludesSubdomains</key>
+                <true/>
+                <key>NSThirdPartyExceptionRequiresForwardSecrecy</key>
+                <false/>
+            </dict>
+        </dict>
 	</dict>
 	<key>NSFaceIDUsageDescription</key>
 	<string>$(PRODUCT_NAME) uses Touch ID/Face ID login.</string>
