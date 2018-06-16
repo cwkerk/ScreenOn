@@ -12,7 +12,7 @@
 
 - (void)awakeFromNib {
     [super awakeFromNib];
-    [self.fbLoginBtn setReadPermissions:@[@"public_profile", @"email"]];
+    [self.fbLoginBtn setReadPermissions:@[@"email", @"public_profile"]];
 }
 
 - (void)drawRect:(CGRect)rect {

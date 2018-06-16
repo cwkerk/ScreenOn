@@ -33,7 +33,6 @@
             NSLog(@"Consent is completed");
         }
     }];
-    
 }
 
 - (void)viewWillAppear:(BOOL)animated {
@@ -77,6 +76,11 @@
 
 - (void)loginButton:(FBSDKLoginButton *)loginButton didCompleteWithResult:(FBSDKLoginManagerLoginResult *)result error:(NSError *)error {
     // TODO: response to user login
+    if ([[FBSDKAccessToken currentAccessToken] .permissions containsObject:@"email"]) {
+        NSLog(@"No reading permission for email");
+    } else {
+        NSLog(@"Got reading permission for email");
+    }
 }
 
 - (void)loginButtonDidLogOut:(FBSDKLoginButton *)loginButton {
