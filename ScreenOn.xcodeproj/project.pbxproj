@@ -34,6 +34,7 @@
 		72F04C2920BAA46000DA34D2 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 72F04C2820BAA46000DA34D2 /* main.m */; };
 		72F04C3320BAA46000DA34D2 /* ScreenOnTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 72F04C3220BAA46000DA34D2 /* ScreenOnTests.m */; };
 		72F04C3E20BAA46000DA34D2 /* ScreenOnUITests.m in Sources */ = {isa = PBXBuildFile; fileRef = 72F04C3D20BAA46000DA34D2 /* ScreenOnUITests.m */; };
+		72F3C14920D51A4E00E328AC /* CardView.m in Sources */ = {isa = PBXBuildFile; fileRef = 72F3C14820D51A4E00E328AC /* CardView.m */; };
 		79E8A4B585D8B450D235CC3E /* libPods-ScreenOn.a in Frameworks */ = {isa = PBXBuildFile; fileRef = B4FBDDAAFA8ED0985C05833B /* libPods-ScreenOn.a */; };
 		AEC5D61B923CC126D927F817 /* libPods-ScreenOnTests.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 000EE2E0697B2606E5CA6249 /* libPods-ScreenOnTests.a */; };
 /* End PBXBuildFile section */
@@ -112,6 +113,8 @@
 		72F04C3920BAA46000DA34D2 /* ScreenOnUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = ScreenOnUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		72F04C3D20BAA46000DA34D2 /* ScreenOnUITests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ScreenOnUITests.m; sourceTree = "<group>"; };
 		72F04C3F20BAA46000DA34D2 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		72F3C14720D51A4E00E328AC /* CardView.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = CardView.h; sourceTree = "<group>"; };
+		72F3C14820D51A4E00E328AC /* CardView.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = CardView.m; sourceTree = "<group>"; };
 		B4FBDDAAFA8ED0985C05833B /* libPods-ScreenOn.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-ScreenOn.a"; sourceTree = BUILT_PRODUCTS_DIR; };
 		F5A73F95CEDD1DA09F0E0BDE /* Pods-ScreenOnUITests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-ScreenOnUITests.release.xcconfig"; path = "Pods/Target Support Files/Pods-ScreenOnUITests/Pods-ScreenOnUITests.release.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -228,6 +231,8 @@
 		72ED683320D4B34700E00775 /* CustomView */ = {
 			isa = PBXGroup;
 			children = (
+				72F3C14720D51A4E00E328AC /* CardView.h */,
+				72F3C14820D51A4E00E328AC /* CardView.m */,
 				72ED683720D4B3B000E00775 /* LoginView.h */,
 				72ED683820D4B3B000E00775 /* LoginView.m */,
 				72ED683A20D4B3BA00E00775 /* LoginView.xib */,
@@ -597,6 +602,7 @@
 			files = (
 				72EFD5B420D3BDBB00B1E3AA /* TopRateViewController.m in Sources */,
 				72EFAFE420D39ACA00FF5352 /* UIViewController+ext.m in Sources */,
+				72F3C14920D51A4E00E328AC /* CardView.m in Sources */,
 				72AB4C2B20D35AD500838B96 /* LAContext+ext.m in Sources */,
 				72EFD5AD20D3B31C00B1E3AA /* DownloadsViewController.m in Sources */,
 				72EF357D20C2B2D50047B935 /* CoreDataManager.m in Sources */,

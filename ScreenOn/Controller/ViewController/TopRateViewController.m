@@ -33,7 +33,7 @@
 
 - (void)viewDidAppear:(BOOL)animated {
     [super viewDidAppear:animated];
-    CGRect rectA = CGRectMake(0, 0, self.view.bounds.size.width, self.view.bounds.size.height - 60);
+    CGRect rectA = CGRectMake(0, 0, self.view.bounds.size.width, self.view.bounds.size.height - 150);
     DemoAViewController *demoA = [[DemoAViewController alloc] init];
     [self showContentViewController:demoA underRect:rectA inView:self.view];
     [self.navigationController setNavigationBarHidden:NO];

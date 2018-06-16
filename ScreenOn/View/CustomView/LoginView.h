@@ -9,8 +9,9 @@
 #import <UIKit/UIKit.h>
 #import <FBSDKLoginKit.h>
 #import <GoogleSignIn/GoogleSignIn.h>
+#import "CardView.h"
 
-@interface LoginView : UIView
+@interface LoginView : CardView
 
 @property (weak, nonatomic) IBOutlet UIImageView *appLogoView;
 @property (weak, nonatomic) IBOutlet GIDSignInButton *gidSigninBtn;

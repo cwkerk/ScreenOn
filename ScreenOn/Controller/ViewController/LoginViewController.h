@@ -9,6 +9,7 @@
 #import <FBSDKLoginKit/FBSDKLoginKit.h>
 #import <GoogleSignIn/GoogleSignIn.h>
 #import <PersonalizedAdConsent/PersonalizedAdConsent.h>
+#import <PinterestSDK.h>
 #import "AdmobViewController.h"
 #import "LAContext+ext.h"
 #import "LoginView.h"

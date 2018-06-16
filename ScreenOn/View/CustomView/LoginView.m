@@ -12,6 +12,7 @@
 
 - (void)awakeFromNib {
     [super awakeFromNib];
+    [self.fbLoginBtn setBackgroundColor:UIColor.clearColor];
     [self.fbLoginBtn setReadPermissions:@[@"email", @"public_profile"]];
 }
 

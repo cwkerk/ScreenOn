@@ -18,7 +18,7 @@
     [super viewDidLoad];
     [self.view setBackgroundColor:UIColor.redColor];
     LoginView *loginView = [NSBundle.mainBundle loadNibNamed:@"LoginView" owner:self options:nil].firstObject;
-    [loginView setBounds:CGRectMake(0, 0, 350, 350)];
+    [loginView setBounds:CGRectMake(0, 0, 270, 350)];
     [loginView setCenter:self.view.center];
     [loginView.fbLoginBtn setDelegate:self];
     [self.view addSubview:loginView];
@@ -43,6 +43,15 @@
     } else if ([[GIDSignIn sharedInstance] hasAuthInKeychain]) {
         [[GIDSignIn sharedInstance] signInSilently];
     } else {
+        // Pinterest provide authentification method below for non-login app purpose to read/share pins
+        /*
+         [[PDKClient sharedInstance] authenticateWithPermissions:@[PDKClientReadPublicPermissions] fromViewController:self withSuccess:^(PDKResponseObject *responseObject) {
+         
+         } andFailure:^(NSError *error) {
+         
+         }];
+        */
+        
         // TODO: Face ID/Touch ID Authentification
         // NOTE: No token return from Face ID/Touch ID Authentification system
         // RISK: User account maybe out of sync as no verification information
@@ -58,7 +67,7 @@
                 }
             });
         }];
-         */
+        */
     }
 }
 
