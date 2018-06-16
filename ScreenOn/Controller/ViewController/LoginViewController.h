@@ -14,6 +14,6 @@
 #import "LoginView.h"
 #import "NSDate+ext.h"
 
-@interface LoginViewController : AdmobViewController <GIDSignInDelegate, GIDSignInUIDelegate>
+@interface LoginViewController : AdmobViewController <GIDSignInDelegate, GIDSignInUIDelegate, FBSDKLoginButtonDelegate>
 
 @end

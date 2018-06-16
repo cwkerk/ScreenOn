@@ -19,6 +19,7 @@
     [super drawRect:rect];
     for (NSLayoutConstraint *c in self.fbLoginBtn.constraints) {
         if (c.firstAttribute == NSLayoutAttributeHeight && c.constant == 28) {
+            [c setActive:NO];
             [self.fbLoginBtn removeConstraint:c];
         }
     }

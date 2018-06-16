@@ -16,9 +16,11 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
+    [self.view setBackgroundColor:UIColor.redColor];
     LoginView *loginView = [NSBundle.mainBundle loadNibNamed:@"LoginView" owner:self options:nil].firstObject;
     [loginView setBounds:CGRectMake(0, 0, 350, 350)];
     [loginView setCenter:self.view.center];
+    [loginView.fbLoginBtn setDelegate:self];
     [self.view addSubview:loginView];
     [[GIDSignIn sharedInstance] setDelegate:self];
     [[GIDSignIn sharedInstance] setUiDelegate:self];
@@ -31,6 +33,7 @@
             NSLog(@"Consent is completed");
         }
     }];
+    
 }
 
 - (void)viewWillAppear:(BOOL)animated {
@@ -41,7 +44,10 @@
     } else if ([[GIDSignIn sharedInstance] hasAuthInKeychain]) {
         [[GIDSignIn sharedInstance] signInSilently];
     } else {
-        return;
+        // TODO: Face ID/Touch ID Authentification
+        // NOTE: No token return from Face ID/Touch ID Authentification system
+        // RISK: User account maybe out of sync as no verification information
+        /*
         LAContext *context = [[LAContext alloc] init];
         [context authWithPolicy:LAPolicyDeviceOwnerAuthenticationWithBiometrics reason:@"ScreenOn uses Touch ID/Face ID login." onCompleteHandler:^(BOOL success, NSError * _Nullable error) {
             dispatch_async(dispatch_get_main_queue(), ^{
@@ -53,6 +59,7 @@
                 }
             });
         }];
+         */
     }
 }
 
@@ -64,6 +71,16 @@
     NSLog(@"Google sign token: %@", user.authentication.idToken);
     NSLog(@"Google email: %@", user.profile.email);
     [self performSegueWithIdentifier:@"enter" sender:nil];
+}
+
+#pragma FBSDKLoginButtonDelegate
+
+- (void)loginButton:(FBSDKLoginButton *)loginButton didCompleteWithResult:(FBSDKLoginManagerLoginResult *)result error:(NSError *)error {
+    // TODO: response to user login
+}
+
+- (void)loginButtonDidLogOut:(FBSDKLoginButton *)loginButton {
+    // TODO: response to user logout
 }
 
 @end

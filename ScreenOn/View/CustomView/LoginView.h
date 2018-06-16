@@ -12,7 +12,6 @@
 
 @interface LoginView : UIView
 
-
 @property (weak, nonatomic) IBOutlet UIImageView *appLogoView;
 @property (weak, nonatomic) IBOutlet GIDSignInButton *gidSigninBtn;
 @property (weak, nonatomic) IBOutlet FBSDKLoginButton *fbLoginBtn;
