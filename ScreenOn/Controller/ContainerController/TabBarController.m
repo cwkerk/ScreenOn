@@ -20,12 +20,4 @@
     [self.navigationController setToolbarHidden:YES];
 }
 
-- (void)logoutFB {
-    [[[FBSDKLoginManager alloc] init] logOut];
-}
-
-- (void)logoutGID {
-    [[GIDSignIn sharedInstance] signOut];
-}
-
 @end

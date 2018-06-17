@@ -7,8 +7,6 @@
 //
 
 #import <UIKit/UIKit.h>
-#import <FBSDKLoginKit/FBSDKLoginKit.h>
-#import <GoogleSignIn/GoogleSignIn.h>
 
 @interface TabBarController : UITabBarController
 
