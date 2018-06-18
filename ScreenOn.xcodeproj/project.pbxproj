@@ -18,6 +18,8 @@
 		72CFF57B20CBB4780054C564 /* google.plist in Resources */ = {isa = PBXBuildFile; fileRef = 72CFF57A20CBB4780054C564 /* google.plist */; };
 		72ED683920D4B3B000E00775 /* LoginView.m in Sources */ = {isa = PBXBuildFile; fileRef = 72ED683820D4B3B000E00775 /* LoginView.m */; };
 		72ED683B20D4B3BA00E00775 /* LoginView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 72ED683A20D4B3BA00E00775 /* LoginView.xib */; };
+		72EE7B2F20D77752006C7C43 /* SCNNode+ext.m in Sources */ = {isa = PBXBuildFile; fileRef = 72EE7B2E20D77752006C7C43 /* SCNNode+ext.m */; };
+		72EE7B3220D77BC7006C7C43 /* ARSCNView+ext.m in Sources */ = {isa = PBXBuildFile; fileRef = 72EE7B3120D77BC7006C7C43 /* ARSCNView+ext.m */; };
 		72EF357A20C2B2920047B935 /* NSPersistentStoreCoordinator+ext.m in Sources */ = {isa = PBXBuildFile; fileRef = 72EF357820C2B2920047B935 /* NSPersistentStoreCoordinator+ext.m */; };
 		72EF357D20C2B2D50047B935 /* CoreDataManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 72EF357B20C2B2D50047B935 /* CoreDataManager.m */; };
 		72EF358320C2B3270047B935 /* CaptureManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 72EF358220C2B3270047B935 /* CaptureManager.m */; };
@@ -83,6 +85,10 @@
 		72ED683720D4B3B000E00775 /* LoginView.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = LoginView.h; sourceTree = "<group>"; };
 		72ED683820D4B3B000E00775 /* LoginView.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = LoginView.m; sourceTree = "<group>"; };
 		72ED683A20D4B3BA00E00775 /* LoginView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = LoginView.xib; sourceTree = "<group>"; };
+		72EE7B2D20D77752006C7C43 /* SCNNode+ext.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "SCNNode+ext.h"; sourceTree = "<group>"; };
+		72EE7B2E20D77752006C7C43 /* SCNNode+ext.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = "SCNNode+ext.m"; sourceTree = "<group>"; };
+		72EE7B3020D77BC7006C7C43 /* ARSCNView+ext.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "ARSCNView+ext.h"; sourceTree = "<group>"; };
+		72EE7B3120D77BC7006C7C43 /* ARSCNView+ext.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = "ARSCNView+ext.m"; sourceTree = "<group>"; };
 		72EF357820C2B2920047B935 /* NSPersistentStoreCoordinator+ext.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSPersistentStoreCoordinator+ext.m"; sourceTree = "<group>"; };
 		72EF357920C2B2920047B935 /* NSPersistentStoreCoordinator+ext.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSPersistentStoreCoordinator+ext.h"; sourceTree = "<group>"; };
 		72EF357B20C2B2D50047B935 /* CoreDataManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CoreDataManager.m; sourceTree = "<group>"; };
@@ -163,8 +169,12 @@
 		721816D220C3822800207647 /* Extension */ = {
 			isa = PBXGroup;
 			children = (
+				72EE7B3020D77BC7006C7C43 /* ARSCNView+ext.h */,
+				72EE7B3120D77BC7006C7C43 /* ARSCNView+ext.m */,
 				721816D420C382AD00207647 /* NSDate+ext.h */,
 				721816D520C382AD00207647 /* NSDate+ext.m */,
+				72EE7B2D20D77752006C7C43 /* SCNNode+ext.h */,
+				72EE7B2E20D77752006C7C43 /* SCNNode+ext.m */,
 			);
 			path = Extension;
 			sourceTree = "<group>";
@@ -611,6 +621,7 @@
 				72AB4C2B20D35AD500838B96 /* LAContext+ext.m in Sources */,
 				72EFD5AD20D3B31C00B1E3AA /* DownloadsViewController.m in Sources */,
 				72EF357D20C2B2D50047B935 /* CoreDataManager.m in Sources */,
+				72EE7B2F20D77752006C7C43 /* SCNNode+ext.m in Sources */,
 				72EF358320C2B3270047B935 /* CaptureManager.m in Sources */,
 				72AB4C2520D350F800838B96 /* UserNotificationManager.m in Sources */,
 				721816D620C382AD00207647 /* NSDate+ext.m in Sources */,
@@ -623,6 +634,7 @@
 				72F04C2920BAA46000DA34D2 /* main.m in Sources */,
 				72ED683920D4B3B000E00775 /* LoginView.m in Sources */,
 				72EFD5B120D3BAAD00B1E3AA /* TabBarController.m in Sources */,
+				72EE7B3220D77BC7006C7C43 /* ARSCNView+ext.m in Sources */,
 				72F04C1820BAA45E00DA34D2 /* AppDelegate.m in Sources */,
 				72F4AFA420D5399B00B9E4DB /* ARViewController.m in Sources */,
 				72AB4C2E20D35FF800838B96 /* UIView+ext.m in Sources */,

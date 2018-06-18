@@ -7,8 +7,11 @@
 //
 
 #import <ARKit/ARKit.h>
+#import <SceneKit/SceneKit.h>
+#import "ARSCNView+ext.h"
+#import "SCNNode+ext.h"
 
-@interface ARViewController : UIViewController
+@interface ARViewController : UIViewController <ARSCNViewDelegate>
 
 @property (strong, nonatomic) ARSCNView *arScnView NS_AVAILABLE_IOS(11.0);
 
