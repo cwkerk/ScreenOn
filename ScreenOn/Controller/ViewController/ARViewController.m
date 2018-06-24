@@ -17,7 +17,7 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     if (@available(iOS 11.0, *)) {
-        self.arScnView = [[ARSCNView alloc] initWithFrame:self.view.bounds];
+        self->_arScnView = [[ARSCNView alloc] initWithFrame:self.view.bounds];
         [self.arScnView setDelegate:self];
         [self.view addSubview:self.arScnView];
         UIPanGestureRecognizer *pan = [[UIPanGestureRecognizer alloc] initWithTarget:self action:@selector(panGestureHandler:)];
@@ -25,6 +25,22 @@
         [self.arScnView addGestureRecognizer:pan];
         [self.arScnView addGestureRecognizer:tap];
     }
+    NSURL *assetURL = [[NSFileManager defaultManager] URLsForDirectory:NSDocumentDirectory inDomains:NSUserDomainMask][0];
+    assetURL = [assetURL URLByAppendingPathComponent:@"test.mp4"];
+    NSError *error;
+    self->_assetWriter = [AVAssetWriter assetWriterWithURL:assetURL fileType:AVFileTypeMPEG4 error:&error];
+    NSDictionary *settings = @{
+        AVVideoCodecKey: AVVideoCodecH264,
+        AVVideoWidthKey: [NSNumber numberWithFloat:self.view.bounds.size.width],
+        AVVideoHeightKey: [NSNumber numberWithFloat:self.view.bounds.size.height]
+    };
+    [self.assetWriter addInput:[[AVAssetWriterInput alloc] initWithMediaType:AVMediaTypeVideo outputSettings:settings]];
+    [self.view bringSubviewToFront:self.videoRecordBtn];
+    self->_startRecordingIcon = [[UIImage imageNamed:@"StartRecording"] imageWithRenderingMode:UIImageRenderingModeAlwaysTemplate];
+    self->_stopRecordingIcon = [[UIImage imageNamed:@"StopRecording"] imageWithRenderingMode:UIImageRenderingModeAlwaysTemplate];
+    [self.videoRecordBtn setImage:self.startRecordingIcon forState:UIControlStateNormal];
+    [self.videoRecordBtn.imageView setTintColor:[UIColor redColor]];
+    [[RPScreenRecorder sharedRecorder] setDelegate:self];
 }
 
 - (void)viewWillAppear:(BOOL)animated {
@@ -44,6 +60,50 @@
     }
 }
 
+- (IBAction)recordVideo:(UIButton *)sender {
+    if (@available(iOS 11.0, *)) {
+        if ([[RPScreenRecorder sharedRecorder] isAvailable]) {
+            if ([sender.currentImage isEqual:self.startRecordingIcon]) {
+                /*[[RPScreenRecorder sharedRecorder] startRecordingWithMicrophoneEnabled:YES handler:^(NSError * _Nullable error) {
+                    if (error != nil) {
+                        NSLog(@"Failed to start recording due to %@", [error localizedDescription]);
+                    } else {
+                    }
+                }];*/
+                [[RPScreenRecorder sharedRecorder] startCaptureWithHandler:^(CMSampleBufferRef  _Nonnull sampleBuffer, RPSampleBufferType bufferType, NSError * _Nullable error) {
+                    if (CMSampleBufferDataIsReady(sampleBuffer)) {
+                        if (self.assetWriter.status == AVAssetWriterStatusUnknown) {
+                            [self.assetWriter startWriting];
+                            [self.assetWriter startSessionAtSourceTime:CMSampleBufferGetPresentationTimeStamp(sampleBuffer)];
+                        }
+                    }
+                    if (bufferType == RPSampleBufferTypeVideo && self.assetWriter.inputs.firstObject.isReadyForMoreMediaData) {
+                        [self.assetWriter.inputs.firstObject appendSampleBuffer:sampleBuffer];
+                    }
+                } completionHandler:^(NSError * _Nullable error) {
+                    if (error != nil) {
+                        NSLog(@"Screen recording is failed to start due to : %@", [error localizedDescription]);
+                    }
+                }];
+                [self.videoRecordBtn setImage:self.stopRecordingIcon forState:UIControlStateNormal];
+            } else {
+                [[RPScreenRecorder sharedRecorder] stopCaptureWithHandler:^(NSError * _Nullable error) {
+                    [self.assetWriter finishWritingWithCompletionHandler:^{
+                        if (error != nil) {
+                            NSLog(@"Failed to start recording due to %@", [error localizedDescription]);
+                        } else {
+                            NSLog(@"Video is recorded in URL: %@", self.assetWriter.outputURL);
+                        }
+                    }];
+                }];
+                [self.videoRecordBtn setImage:self.startRecordingIcon forState:UIControlStateNormal];
+            }
+        } else {
+            NSLog(@"Failed to start/stop recording due to Screen recorder is not available");
+        }
+    }
+}
+
 #pragma private functions
 
 - (void)panGestureHandler:(UIPanGestureRecognizer *)sender {
@@ -52,13 +112,13 @@
         SCNHitTestResult *result = [self.arScnView hitTest:position options:nil].firstObject;
         switch (sender.state) {
             case UIGestureRecognizerStateBegan:
-                self.panningNode = result.node;
+                self->_panningNode = result.node;
                 break;
             case UIGestureRecognizerStateChanged:
                 self.panningNode.position = [self.arScnView getVector3From:position withType:ARHitTestResultTypeFeaturePoint];
                 break;
             case UIGestureRecognizerStateEnded:
-                self.panningNode = nil;
+                self->_panningNode = nil;
                 break;
             default:
                 break;
@@ -111,6 +171,20 @@
 
 - (void)session:(ARSession *)session didOutputAudioSampleBuffer:(CMSampleBufferRef)audioSampleBuffer NS_AVAILABLE_IOS(11.0) {
     
+}
+
+#pragma RPScreenRecorderDelegate
+
+- (void)screenRecorderDidChangeAvailability:(RPScreenRecorder *)screenRecorder {
+    NSLog(@"Screen recorder changes availability");
+}
+
+- (void)screenRecorder:(RPScreenRecorder *)screenRecorder didStopRecordingWithError:(NSError *)error previewViewController:(RPPreviewViewController *)previewViewController {
+    NSLog(@"Screen recorder stopped with error : %@", [error localizedDescription]);
+}
+
+- (void)screenRecorder:(RPScreenRecorder *)screenRecorder didStopRecordingWithPreviewViewController:(RPPreviewViewController *)previewViewController error:(NSError *)error {
+    NSLog(@"Screen recorder stopped with preview due to error : %@", [error localizedDescription]);
 }
 
 @end

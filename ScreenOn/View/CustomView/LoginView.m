@@ -12,8 +12,10 @@
 
 - (void)awakeFromNib {
     [super awakeFromNib];
+    [self.appLogoView.layer setCornerRadius:10.0];
     [self.fbLoginBtn setBackgroundColor:UIColor.clearColor];
     [self.fbLoginBtn setReadPermissions:@[@"email", @"public_profile"]];
+    [self.pinterestLoginBtn.layer setCornerRadius:3.0];
 }
 
 - (void)drawRect:(CGRect)rect {
@@ -23,6 +25,12 @@
             [c setActive:NO];
             [self.fbLoginBtn removeConstraint:c];
         }
+    }
+}
+
+- (IBAction)pinterestLogin:(id)sender {
+    if (self.delegate != nil && [self.delegate respondsToSelector:@selector(pinterestLoginHandler)]) {
+        [self.delegate pinterestLoginHandler];
     }
 }
 

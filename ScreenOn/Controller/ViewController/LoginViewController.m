@@ -16,10 +16,10 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-    [self.view setBackgroundColor:UIColor.redColor];
     LoginView *loginView = [NSBundle.mainBundle loadNibNamed:@"LoginView" owner:self options:nil].firstObject;
-    [loginView setBounds:CGRectMake(0, 0, 270, 350)];
+    [loginView setBounds:CGRectMake(0, 0, 270, 410)];
     [loginView setCenter:self.view.center];
+    [loginView setDelegate:self];
     [loginView.fbLoginBtn setDelegate:self];
     [self.view addSubview:loginView];
     [[GIDSignIn sharedInstance] setDelegate:self];
@@ -42,32 +42,29 @@
         [self performSegueWithIdentifier:@"enter" sender:nil];
     } else if ([[GIDSignIn sharedInstance] hasAuthInKeychain]) {
         [[GIDSignIn sharedInstance] signInSilently];
-    } else {
-        // Pinterest provide authentification method below for non-login app purpose to read/share pins
-        /*
-         [[PDKClient sharedInstance] authenticateWithPermissions:@[PDKClientReadPublicPermissions] fromViewController:self withSuccess:^(PDKResponseObject *responseObject) {
-         
-         } andFailure:^(NSError *error) {
-         
-         }];
-        */
-        
-        // TODO: Face ID/Touch ID Authentification
-        // NOTE: No token return from Face ID/Touch ID Authentification system
-        // RISK: User account maybe out of sync as no verification information
-        /*
-        LAContext *context = [[LAContext alloc] init];
-        [context authWithPolicy:LAPolicyDeviceOwnerAuthenticationWithBiometrics reason:@"ScreenOn uses Touch ID/Face ID login." onCompleteHandler:^(BOOL success, NSError * _Nullable error) {
-            dispatch_async(dispatch_get_main_queue(), ^{
-                if (success) {
-                    NSLog(@"Face ID login successfully");
-                    [self performSegueWithIdentifier:@"enter" sender:nil];
-                } else {
-                    NSLog(@"Face ID login failed due to %@", error.localizedDescription);
-                }
-            });
+    } else if ([[PDKClient sharedInstance] authorized]) {
+        [[PDKClient sharedInstance] silentlyAuthenticatefromViewController:self withSuccess:^(PDKResponseObject *responseObject) {
+            PDKUser *user = [responseObject user];
+            [[NSUserDefaults standardUserDefaults] setValue:user.image.url forKey:@"pic"];
+            NSLog(@"Pinterest authentification is succeed with account : %@", user);
+            [self performSegueWithIdentifier:@"enter" sender:nil];
+        } andFailure:^(NSError *error) {
+            NSLog(@"Pinterest authentification is failed due to %@", [error localizedDescription]);
         }];
-        */
+    } else { // Face ID/Touch ID login 
+        /*
+         LAContext *context = [[LAContext alloc] init];
+         [context authWithPolicy:LAPolicyDeviceOwnerAuthenticationWithBiometrics reason:@"ScreenOn uses Touch ID/Face ID login." onCompleteHandler:^(BOOL success, NSError * _Nullable error) {
+         dispatch_async(dispatch_get_main_queue(), ^{
+         if (success) {
+         NSLog(@"Face ID login successfully");
+         [self performSegueWithIdentifier:@"enter" sender:nil];
+         } else {
+         NSLog(@"Face ID login failed due to %@", error.localizedDescription);
+         }
+         });
+         }];
+         */
     }
 }
 
@@ -85,15 +82,37 @@
 
 - (void)loginButton:(FBSDKLoginButton *)loginButton didCompleteWithResult:(FBSDKLoginManagerLoginResult *)result error:(NSError *)error {
     // TODO: response to user login
-    if ([[FBSDKAccessToken currentAccessToken] .permissions containsObject:@"email"]) {
-        NSLog(@"No reading permission for email");
-    } else {
-        NSLog(@"Got reading permission for email");
+    if ([FBSDKAccessToken currentAccessToken]) {
+        [[[FBSDKGraphRequest alloc] initWithGraphPath:@"me" parameters:@{@"fields": @"email,first_name,last_name,picture.width(1000).height(1000),birthday,gender"}] startWithCompletionHandler:^(FBSDKGraphRequestConnection *connection, id result, NSError *error) {
+            if (error) {
+                NSLog(@"Failed to read user profile due to : %@", [error localizedDescription]);
+            } else {
+                NSString *path = result[@"picture"][@"data"][@"url"];
+                [[NSUserDefaults standardUserDefaults] setValue:path forKey:@"pic"];
+                NSLog(@"Facebook email is %@", path);
+            }
+        }];
     }
 }
 
 - (void)loginButtonDidLogOut:(FBSDKLoginButton *)loginButton {
     // TODO: response to user logout
+}
+
+#pragma LoginViewDelegate
+
+- (void)pinterestLoginHandler {
+    [[PDKClient sharedInstance] authenticateWithPermissions:@[
+        PDKClientReadPublicPermissions, PDKClientWritePublicPermissions,
+        PDKClientReadRelationshipsPermissions, PDKClientWriteRelationshipsPermissions
+    ] fromViewController:self withSuccess:^(PDKResponseObject *responseObject) {
+        PDKUser *user = [responseObject user];
+        [[NSUserDefaults standardUserDefaults] setValue:user.image.url forKey:@"pic"];
+        NSLog(@"Pinterest authentification is succeed with account : %@", user);
+        [self performSegueWithIdentifier:@"enter" sender:nil];
+    } andFailure:^(NSError *error) {
+        NSLog(@"Pinterest authentification is failed due to %@", [error localizedDescription]);
+    }];
 }
 
 @end

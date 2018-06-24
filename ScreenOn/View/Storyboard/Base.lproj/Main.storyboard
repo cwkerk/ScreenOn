@@ -20,21 +20,7 @@
                     <view key="view" contentMode="scaleToFill" id="Xa0-4M-Fho">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                        <subviews>
-                            <view hidden="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="L5b-bo-XX5" customClass="GIDSignInButton">
-                                <rect key="frame" x="88" y="261.5" width="198" height="44"/>
-                                <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                <constraints>
-                                    <constraint firstAttribute="width" constant="198" id="ADI-l5-4jH"/>
-                                    <constraint firstAttribute="height" constant="44" id="bMO-9d-LAU"/>
-                                </constraints>
-                            </view>
-                        </subviews>
-                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                        <constraints>
-                            <constraint firstItem="L5b-bo-XX5" firstAttribute="centerX" secondItem="Xa0-4M-Fho" secondAttribute="centerX" id="Bwl-87-cbB"/>
-                            <constraint firstItem="L5b-bo-XX5" firstAttribute="centerY" secondItem="Xa0-4M-Fho" secondAttribute="centerY" constant="-50" id="VbO-ak-71f"/>
-                        </constraints>
+                        <color key="backgroundColor" red="0.47058823529411764" green="0.47843137254901957" blue="0.4823529411764706" alpha="1" colorSpace="calibratedRGB"/>
                     </view>
                     <navigationItem key="navigationItem" id="Hef-vY-k3l"/>
                     <connections>
@@ -45,7 +31,7 @@
             </objects>
             <point key="canvasLocation" x="-966" y="-860"/>
         </scene>
-        <!--ARKit VideoMake-->
+        <!--AR-->
         <scene sceneID="9ox-IR-m5A">
             <objects>
                 <viewController id="8xc-tO-FZl" customClass="ARViewController" sceneMemberID="viewController">
@@ -59,7 +45,7 @@
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                     </view>
                     <toolbarItems/>
-                    <navigationItem key="navigationItem" title="ARKit VideoMake" id="RaD-cm-IaS"/>
+                    <navigationItem key="navigationItem" title="AR" id="RaD-cm-IaS"/>
                     <simulatedToolbarMetrics key="simulatedBottomBarMetrics"/>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="6S3-Yl-MuT" userLabel="First Responder" sceneMemberID="firstResponder"/>
