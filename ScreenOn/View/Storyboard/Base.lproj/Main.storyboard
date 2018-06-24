@@ -42,11 +42,31 @@
                     <view key="view" contentMode="scaleToFill" id="m7i-Qx-qjd">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="bfq-9f-xYS">
+                                <rect key="frame" x="155.5" y="460" width="64" height="64"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="64" id="eRV-Qg-UjQ"/>
+                                    <constraint firstAttribute="width" constant="64" id="zQZ-qb-AaM"/>
+                                </constraints>
+                                <state key="normal" image="StopRecording"/>
+                                <connections>
+                                    <action selector="recordVideo:" destination="8xc-tO-FZl" eventType="touchUpInside" id="PZk-KV-pi3"/>
+                                </connections>
+                            </button>
+                        </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <constraints>
+                            <constraint firstItem="wGc-DQ-0rD" firstAttribute="top" secondItem="bfq-9f-xYS" secondAttribute="bottom" constant="50" id="gq9-Uw-CwJ"/>
+                            <constraint firstItem="bfq-9f-xYS" firstAttribute="centerX" secondItem="m7i-Qx-qjd" secondAttribute="centerX" id="yS8-kI-dBk"/>
+                        </constraints>
                     </view>
                     <toolbarItems/>
                     <navigationItem key="navigationItem" title="AR" id="RaD-cm-IaS"/>
                     <simulatedToolbarMetrics key="simulatedBottomBarMetrics"/>
+                    <connections>
+                        <outlet property="videoRecordBtn" destination="bfq-9f-xYS" id="igQ-3U-boz"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="6S3-Yl-MuT" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
@@ -203,4 +223,7 @@
             <point key="canvasLocation" x="829.60000000000002" y="106.59670164917542"/>
         </scene>
     </scenes>
+    <resources>
+        <image name="StopRecording" width="64" height="64"/>
+    </resources>
 </document>

@@ -36,10 +36,9 @@
     };
     [self.assetWriter addInput:[[AVAssetWriterInput alloc] initWithMediaType:AVMediaTypeVideo outputSettings:settings]];
     [self.view bringSubviewToFront:self.videoRecordBtn];
-    self->_startRecordingIcon = [[UIImage imageNamed:@"StartRecording"] imageWithRenderingMode:UIImageRenderingModeAlwaysTemplate];
-    self->_stopRecordingIcon = [[UIImage imageNamed:@"StopRecording"] imageWithRenderingMode:UIImageRenderingModeAlwaysTemplate];
-    [self.videoRecordBtn setImage:self.startRecordingIcon forState:UIControlStateNormal];
-    [self.videoRecordBtn.imageView setTintColor:[UIColor redColor]];
+    self->_recordingIcon = [[UIImage imageNamed:@"Recording"] imageWithRenderingMode:UIImageRenderingModeAlwaysTemplate];
+    [self.videoRecordBtn setImage:self.recordingIcon forState:UIControlStateNormal];
+    [self.videoRecordBtn.imageView setTintColor:[UIColor whiteColor]];
     [[RPScreenRecorder sharedRecorder] setDelegate:self];
 }
 
@@ -63,13 +62,7 @@
 - (IBAction)recordVideo:(UIButton *)sender {
     if (@available(iOS 11.0, *)) {
         if ([[RPScreenRecorder sharedRecorder] isAvailable]) {
-            if ([sender.currentImage isEqual:self.startRecordingIcon]) {
-                /*[[RPScreenRecorder sharedRecorder] startRecordingWithMicrophoneEnabled:YES handler:^(NSError * _Nullable error) {
-                    if (error != nil) {
-                        NSLog(@"Failed to start recording due to %@", [error localizedDescription]);
-                    } else {
-                    }
-                }];*/
+            if (CGColorEqualToColor(sender.imageView.tintColor.CGColor, [UIColor whiteColor].CGColor)) {
                 [[RPScreenRecorder sharedRecorder] startCaptureWithHandler:^(CMSampleBufferRef  _Nonnull sampleBuffer, RPSampleBufferType bufferType, NSError * _Nullable error) {
                     if (CMSampleBufferDataIsReady(sampleBuffer)) {
                         if (self.assetWriter.status == AVAssetWriterStatusUnknown) {
@@ -85,7 +78,7 @@
                         NSLog(@"Screen recording is failed to start due to : %@", [error localizedDescription]);
                     }
                 }];
-                [self.videoRecordBtn setImage:self.stopRecordingIcon forState:UIControlStateNormal];
+                [self.videoRecordBtn.imageView setTintColor:[UIColor redColor]];
             } else {
                 [[RPScreenRecorder sharedRecorder] stopCaptureWithHandler:^(NSError * _Nullable error) {
                     [self.assetWriter finishWritingWithCompletionHandler:^{
@@ -96,7 +89,7 @@
                         }
                     }];
                 }];
-                [self.videoRecordBtn setImage:self.startRecordingIcon forState:UIControlStateNormal];
+                [self.videoRecordBtn.imageView setTintColor:[UIColor whiteColor]];
             }
         } else {
             NSLog(@"Failed to start/stop recording due to Screen recorder is not available");

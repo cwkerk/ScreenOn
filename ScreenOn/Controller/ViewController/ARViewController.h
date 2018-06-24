@@ -32,9 +32,7 @@
 
 @property (strong, nonatomic, readonly) AVAssetWriter *assetWriter;
 
-@property (strong, nonatomic, readonly) UIImage *startRecordingIcon;
-
-@property (strong, nonatomic, readonly) UIImage *stopRecordingIcon;
+@property (strong, nonatomic, readonly) UIImage *recordingIcon;
 
 @property (weak, nonatomic) IBOutlet UIButton *videoRecordBtn;
 
