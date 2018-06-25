@@ -57,8 +57,9 @@
 }
 
 - (BOOL)application:(UIApplication *)application openURL:(NSURL *)url sourceApplication:(NSString *)sourceApplication annotation:(id)annotation {
-    BOOL handled = [[FBSDKApplicationDelegate sharedInstance] application:application openURL:url sourceApplication:sourceApplication annotation:annotation];
-    return handled;
+    BOOL fbhandled = [[FBSDKApplicationDelegate sharedInstance] application:application openURL:url sourceApplication:sourceApplication annotation:annotation];
+    BOOL ptHandled = [[PDKClient sharedInstance] handleCallbackURL:url];
+    return fbhandled || ptHandled;
 }
 
 - (BOOL)application:(UIApplication *)application handleOpenURL:(NSURL *)url {
