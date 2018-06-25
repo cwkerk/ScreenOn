@@ -25,20 +25,10 @@
         [self.arScnView addGestureRecognizer:pan];
         [self.arScnView addGestureRecognizer:tap];
     }
-    NSURL *assetURL = [[NSFileManager defaultManager] URLsForDirectory:NSDocumentDirectory inDomains:NSUserDomainMask][0];
-    assetURL = [assetURL URLByAppendingPathComponent:@"test.mp4"];
-    NSError *error;
-    self->_assetWriter = [AVAssetWriter assetWriterWithURL:assetURL fileType:AVFileTypeMPEG4 error:&error];
-    NSDictionary *settings = @{
-        AVVideoCodecKey: AVVideoCodecH264,
-        AVVideoWidthKey: [NSNumber numberWithFloat:self.view.bounds.size.width],
-        AVVideoHeightKey: [NSNumber numberWithFloat:self.view.bounds.size.height]
-    };
-    [self.assetWriter addInput:[[AVAssetWriterInput alloc] initWithMediaType:AVMediaTypeVideo outputSettings:settings]];
-    [self.view bringSubviewToFront:self.videoRecordBtn];
-    self->_recordingIcon = [[UIImage imageNamed:@"Recording"] imageWithRenderingMode:UIImageRenderingModeAlwaysTemplate];
-    [self.videoRecordBtn setImage:self.recordingIcon forState:UIControlStateNormal];
+    [self.snapShotBtn.imageView setTintColor:[UIColor whiteColor]];
     [self.videoRecordBtn.imageView setTintColor:[UIColor whiteColor]];
+    [self.view bringSubviewToFront:self.snapShotBtn];
+    [self.view bringSubviewToFront:self.videoRecordBtn];
     [[RPScreenRecorder sharedRecorder] setDelegate:self];
 }
 
@@ -59,10 +49,19 @@
     }
 }
 
+- (IBAction)takeSnapshot:(id)sender {
+    if (@available(iOS 11.0, *)) {
+        UIImage *shapShot = [self.arScnView snapshot];
+        NSData *data = UIImagePNGRepresentation(shapShot);
+        [[CoreDataManager sharedInstance] upsertForEntity:@"Record" withQuery:@"name=%@" andArgs:@[@"test"] targetParams: @{@"name": @"test", @"date": [NSDate date], @"data": data, @"format": @"png"}];
+    }
+}
+
 - (IBAction)recordVideo:(UIButton *)sender {
     if (@available(iOS 11.0, *)) {
         if ([[RPScreenRecorder sharedRecorder] isAvailable]) {
             if (CGColorEqualToColor(sender.imageView.tintColor.CGColor, [UIColor whiteColor].CGColor)) {
+                self->_assetWriter = [[AVAssetWriter alloc] initWithName:[NSString stringWithFormat:@"test_%@.mp4", [[NSDate date] toStringForFormat:@"yyyyMMddHHmmss"]] InBound:self.view.bounds];
                 [[RPScreenRecorder sharedRecorder] startCaptureWithHandler:^(CMSampleBufferRef  _Nonnull sampleBuffer, RPSampleBufferType bufferType, NSError * _Nullable error) {
                     if (CMSampleBufferDataIsReady(sampleBuffer)) {
                         if (self.assetWriter.status == AVAssetWriterStatusUnknown) {
@@ -86,6 +85,7 @@
                             NSLog(@"Failed to start recording due to %@", [error localizedDescription]);
                         } else {
                             NSLog(@"Video is recorded in URL: %@", self.assetWriter.outputURL);
+                            [VideoPlayer playVideoOfURL:self.assetWriter.outputURL OnViewController:self];
                         }
                     }];
                 }];

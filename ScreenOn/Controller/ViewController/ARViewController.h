@@ -7,6 +7,14 @@
 //
 
 #import <UIKit/UIKit.h>
+#import <ARKit/ARKit.h>
+#import <SceneKit/SceneKit.h>
+#import "ARSCNView+ext.h"
+#import "AVAssetWriter+ext.h"
+#import "CoreDataManager.h"
+#import "NSDate+ext.h"
+#import "SCNNode+ext.h"
+#import "VideoPlayer.h"
 
 #ifdef __IPHONE_9_0
 
@@ -19,11 +27,6 @@
 
 #endif
 
-#import <ARKit/ARKit.h>
-#import <SceneKit/SceneKit.h>
-#import "ARSCNView+ext.h"
-#import "SCNNode+ext.h"
-
 @interface ARViewController : UIViewController <DELEGATE>
 
 @property (strong, nonatomic, readonly) ARSCNView *arScnView NS_AVAILABLE_IOS(11.0);
@@ -32,7 +35,7 @@
 
 @property (strong, nonatomic, readonly) AVAssetWriter *assetWriter;
 
-@property (strong, nonatomic, readonly) UIImage *recordingIcon;
+@property (weak, nonatomic) IBOutlet UIButton *snapShotBtn;
 
 @property (weak, nonatomic) IBOutlet UIButton *videoRecordBtn;
 

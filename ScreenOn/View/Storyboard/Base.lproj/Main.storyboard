@@ -49,15 +49,28 @@
                                     <constraint firstAttribute="height" constant="64" id="eRV-Qg-UjQ"/>
                                     <constraint firstAttribute="width" constant="64" id="zQZ-qb-AaM"/>
                                 </constraints>
-                                <state key="normal" image="StopRecording"/>
+                                <state key="normal" image="Record"/>
                                 <connections>
                                     <action selector="recordVideo:" destination="8xc-tO-FZl" eventType="touchUpInside" id="PZk-KV-pi3"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="idc-GX-6b5">
+                                <rect key="frame" x="61.5" y="460" width="64" height="64"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="64" id="bJw-YQ-aJh"/>
+                                    <constraint firstAttribute="width" constant="64" id="jkH-Cu-yJq"/>
+                                </constraints>
+                                <state key="normal" image="Camera"/>
+                                <connections>
+                                    <action selector="takeSnapshot:" destination="8xc-tO-FZl" eventType="touchUpInside" id="mZQ-yd-4Rq"/>
                                 </connections>
                             </button>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <constraints>
                             <constraint firstItem="wGc-DQ-0rD" firstAttribute="top" secondItem="bfq-9f-xYS" secondAttribute="bottom" constant="50" id="gq9-Uw-CwJ"/>
+                            <constraint firstItem="idc-GX-6b5" firstAttribute="centerY" secondItem="bfq-9f-xYS" secondAttribute="centerY" id="ki3-ls-KbH"/>
+                            <constraint firstItem="bfq-9f-xYS" firstAttribute="leading" secondItem="idc-GX-6b5" secondAttribute="trailing" constant="30" id="vy4-TS-Fik"/>
                             <constraint firstItem="bfq-9f-xYS" firstAttribute="centerX" secondItem="m7i-Qx-qjd" secondAttribute="centerX" id="yS8-kI-dBk"/>
                         </constraints>
                     </view>
@@ -65,6 +78,7 @@
                     <navigationItem key="navigationItem" title="AR" id="RaD-cm-IaS"/>
                     <simulatedToolbarMetrics key="simulatedBottomBarMetrics"/>
                     <connections>
+                        <outlet property="snapShotBtn" destination="idc-GX-6b5" id="qfi-XR-0VP"/>
                         <outlet property="videoRecordBtn" destination="bfq-9f-xYS" id="igQ-3U-boz"/>
                     </connections>
                 </viewController>
@@ -224,6 +238,7 @@
         </scene>
     </scenes>
     <resources>
-        <image name="StopRecording" width="64" height="64"/>
+        <image name="Camera" width="64" height="64"/>
+        <image name="Record" width="64" height="64"/>
     </resources>
 </document>
