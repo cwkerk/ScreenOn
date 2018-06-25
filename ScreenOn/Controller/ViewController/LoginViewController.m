@@ -39,6 +39,7 @@
 - (void)viewWillAppear:(BOOL)animated {
     [super viewWillAppear:animated];
     [self.navigationController setNavigationBarHidden:YES];
+    NSString *token = [[PDKClient sharedInstance] oauthToken];
     if ([FBSDKAccessToken currentAccessTokenIsActive]) {
         [self performSegueWithIdentifier:@"enter" sender:nil];
     } else if ([[GIDSignIn sharedInstance] hasAuthInKeychain]) {
@@ -50,6 +51,7 @@
             [[NSUserDefaults standardUserDefaults] setValue:user.image.url forKey:@"photo"];
             NSLog(@"Pinterest authentification is succeed with account : %@", user);
             [self performSegueWithIdentifier:@"enter" sender:nil];
+            NSLog(@"Pin auth is %d with %@", [[PDKClient sharedInstance] authorized], token);
         } andFailure:^(NSError *error) {
             NSLog(@"Pinterest authentification is failed due to %@", [error localizedDescription]);
             // Use other non-tokenized login approaches if failed to login by Pinterest
@@ -114,6 +116,9 @@
         [[NSUserDefaults standardUserDefaults] setValue:user.image.url forKey:@"photo"];
         NSLog(@"Pinterest authentification is succeed with account : %@", user);
         [self performSegueWithIdentifier:@"enter" sender:nil];
+        NSString *token = [[PDKClient sharedInstance] oauthToken];
+        NSLog(@"Pin auth is %d with %@", [[PDKClient sharedInstance] authorized], token);
+        
     } andFailure:^(NSError *error) {
         NSLog(@"Pinterest authentification is failed due to %@", [error localizedDescription]);
     }];
