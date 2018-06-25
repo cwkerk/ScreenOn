@@ -7,7 +7,8 @@
 //
 
 #import <UIKit/UIKit.h>
+#import "MainTabItemViewController.h"
 
-@interface DemoAViewController : UIViewController
+@interface DemoAViewController : MainTabItemViewController
 
 @end

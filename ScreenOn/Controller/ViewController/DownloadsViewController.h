@@ -7,7 +7,8 @@
 //
 
 #import "AdmobViewController.h"
+#import "MainTabItemViewController.h"
 
-@interface DownloadsViewController : AdmobViewController
+@interface DownloadsViewController : MainTabItemViewController
 
 @end

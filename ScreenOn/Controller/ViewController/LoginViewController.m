@@ -22,6 +22,7 @@
     [loginView setDelegate:self];
     [loginView.fbLoginBtn setDelegate:self];
     [self.view addSubview:loginView];
+    //[self.navigationItem setLeftBarButtonItem:[[UIBarButtonItem alloc] initWithTitle:@"Back" style:UIBarButtonItemStyleDone target:self action:@selector(logoutApp:)]];
     [[GIDSignIn sharedInstance] setDelegate:self];
     [[GIDSignIn sharedInstance] setUiDelegate:self];
     [self addBannerAdmobWithAdID:@"ca-app-pub-1749500499268006/6482697858"];
