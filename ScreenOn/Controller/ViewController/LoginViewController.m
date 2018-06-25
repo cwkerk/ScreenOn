@@ -42,29 +42,31 @@
         [self performSegueWithIdentifier:@"enter" sender:nil];
     } else if ([[GIDSignIn sharedInstance] hasAuthInKeychain]) {
         [[GIDSignIn sharedInstance] signInSilently];
-    } else if ([[PDKClient sharedInstance] authorized]) {
+    } else {
         [[PDKClient sharedInstance] silentlyAuthenticatefromViewController:self withSuccess:^(PDKResponseObject *responseObject) {
-            PDKUser *user = [responseObject user];
-            [[NSUserDefaults standardUserDefaults] setValue:user.image.url forKey:@"pic"];
+            PDKUser *user = responseObject.user;
+            NSLog(@"Boards count is %lu", (unsigned long)responseObject.boards.count);
+            [[NSUserDefaults standardUserDefaults] setValue:user.image.url forKey:@"photo"];
             NSLog(@"Pinterest authentification is succeed with account : %@", user);
             [self performSegueWithIdentifier:@"enter" sender:nil];
         } andFailure:^(NSError *error) {
             NSLog(@"Pinterest authentification is failed due to %@", [error localizedDescription]);
+            // Use other non-tokenized login approaches if failed to login by Pinterest
+            // Face ID/Touch ID login
+            /*
+             LAContext *context = [[LAContext alloc] init];
+             [context authWithPolicy:LAPolicyDeviceOwnerAuthenticationWithBiometrics reason:@"ScreenOn uses Touch ID/Face ID login." onCompleteHandler:^(BOOL success, NSError * _Nullable error) {
+             dispatch_async(dispatch_get_main_queue(), ^{
+             if (success) {
+             NSLog(@"Face ID login successfully");
+             [self performSegueWithIdentifier:@"enter" sender:nil];
+             } else {
+             NSLog(@"Face ID login failed due to %@", error.localizedDescription);
+             }
+             });
+             }];
+             */
         }];
-    } else { // Face ID/Touch ID login 
-        /*
-         LAContext *context = [[LAContext alloc] init];
-         [context authWithPolicy:LAPolicyDeviceOwnerAuthenticationWithBiometrics reason:@"ScreenOn uses Touch ID/Face ID login." onCompleteHandler:^(BOOL success, NSError * _Nullable error) {
-         dispatch_async(dispatch_get_main_queue(), ^{
-         if (success) {
-         NSLog(@"Face ID login successfully");
-         [self performSegueWithIdentifier:@"enter" sender:nil];
-         } else {
-         NSLog(@"Face ID login failed due to %@", error.localizedDescription);
-         }
-         });
-         }];
-         */
     }
 }
 
@@ -106,8 +108,9 @@
         PDKClientReadPublicPermissions, PDKClientWritePublicPermissions,
         PDKClientReadRelationshipsPermissions, PDKClientWriteRelationshipsPermissions
     ] fromViewController:self withSuccess:^(PDKResponseObject *responseObject) {
-        PDKUser *user = [responseObject user];
-        [[NSUserDefaults standardUserDefaults] setValue:user.image.url forKey:@"pic"];
+        PDKUser *user = responseObject.user;
+        NSLog(@"Boards count is %lu", (unsigned long)responseObject.boards.count);
+        [[NSUserDefaults standardUserDefaults] setValue:user.image.url forKey:@"photo"];
         NSLog(@"Pinterest authentification is succeed with account : %@", user);
         [self performSegueWithIdentifier:@"enter" sender:nil];
     } andFailure:^(NSError *error) {

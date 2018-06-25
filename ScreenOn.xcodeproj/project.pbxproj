@@ -38,8 +38,8 @@
 		79E8A4B585D8B450D235CC3E /* libPods-ScreenOn.a in Frameworks */ = {isa = PBXBuildFile; fileRef = B4FBDDAAFA8ED0985C05833B /* libPods-ScreenOn.a */; };
 		A400469D20E1100E00269E1D /* AVAssetWriter+ext.m in Sources */ = {isa = PBXBuildFile; fileRef = A400469B20E1100E00269E1D /* AVAssetWriter+ext.m */; };
 		A400469F20E1107F00269E1D /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = A400469E20E1107F00269E1D /* AppDelegate.m */; };
+		A40046A120E110CE00269E1D /* LoginViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = A40046A020E110CE00269E1D /* LoginViewController.m */; };
 		A4465FCC20DFE9B6009CEB92 /* UIImageView+ext.m in Sources */ = {isa = PBXBuildFile; fileRef = A4465FCB20DFE9B6009CEB92 /* UIImageView+ext.m */; };
-		A4465FCF20DFE9F7009CEB92 /* LoginViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = A4465FCE20DFE9F7009CEB92 /* LoginViewController.m */; };
 		A4465FD220DFEA3F009CEB92 /* ARViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = A4465FD020DFEA3E009CEB92 /* ARViewController.m */; };
 		AEC5D61B923CC126D927F817 /* libPods-ScreenOnTests.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 000EE2E0697B2606E5CA6249 /* libPods-ScreenOnTests.a */; };
 /* End PBXBuildFile section */
@@ -124,11 +124,11 @@
 		A400469B20E1100E00269E1D /* AVAssetWriter+ext.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "AVAssetWriter+ext.m"; sourceTree = "<group>"; };
 		A400469C20E1100E00269E1D /* AVAssetWriter+ext.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "AVAssetWriter+ext.h"; sourceTree = "<group>"; };
 		A400469E20E1107F00269E1D /* AppDelegate.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
+		A40046A020E110CE00269E1D /* LoginViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LoginViewController.m; sourceTree = "<group>"; };
 		A4465FC920DFE6EB009CEB92 /* LoginViewDelegate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LoginViewDelegate.h; sourceTree = "<group>"; };
 		A4465FCA20DFE9B5009CEB92 /* UIImageView+ext.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIImageView+ext.h"; sourceTree = "<group>"; };
 		A4465FCB20DFE9B6009CEB92 /* UIImageView+ext.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIImageView+ext.m"; sourceTree = "<group>"; };
 		A4465FCD20DFE9F7009CEB92 /* LoginViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LoginViewController.h; sourceTree = "<group>"; };
-		A4465FCE20DFE9F7009CEB92 /* LoginViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LoginViewController.m; sourceTree = "<group>"; };
 		A4465FD020DFEA3E009CEB92 /* ARViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ARViewController.m; sourceTree = "<group>"; };
 		A4465FD120DFEA3F009CEB92 /* ARViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ARViewController.h; sourceTree = "<group>"; };
 		B4FBDDAAFA8ED0985C05833B /* libPods-ScreenOn.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-ScreenOn.a"; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -380,7 +380,7 @@
 				72EFAFDF20D39A3E00FF5352 /* AdmobViewController.h */,
 				72EFAFE020D39A3E00FF5352 /* AdmobViewController.m */,
 				A4465FCD20DFE9F7009CEB92 /* LoginViewController.h */,
-				A4465FCE20DFE9F7009CEB92 /* LoginViewController.m */,
+				A40046A020E110CE00269E1D /* LoginViewController.m */,
 				A4465FD120DFEA3F009CEB92 /* ARViewController.h */,
 				A4465FD020DFEA3E009CEB92 /* ARViewController.m */,
 				72EFD5AB20D3B31C00B1E3AA /* DownloadsViewController.h */,
@@ -631,13 +631,13 @@
 				72EFAFE420D39ACA00FF5352 /* UIViewController+ext.m in Sources */,
 				72F3C14920D51A4E00E328AC /* CardView.m in Sources */,
 				A400469D20E1100E00269E1D /* AVAssetWriter+ext.m in Sources */,
+				A40046A120E110CE00269E1D /* LoginViewController.m in Sources */,
 				72AB4C2B20D35AD500838B96 /* LAContext+ext.m in Sources */,
 				A4465FCC20DFE9B6009CEB92 /* UIImageView+ext.m in Sources */,
 				72EFD5AD20D3B31C00B1E3AA /* DownloadsViewController.m in Sources */,
 				72EF357D20C2B2D50047B935 /* CoreDataManager.m in Sources */,
 				A4465FD220DFEA3F009CEB92 /* ARViewController.m in Sources */,
 				72EE7B2F20D77752006C7C43 /* SCNNode+ext.m in Sources */,
-				A4465FCF20DFE9F7009CEB92 /* LoginViewController.m in Sources */,
 				72EF358320C2B3270047B935 /* CaptureManager.m in Sources */,
 				72AB4C2520D350F800838B96 /* UserNotificationManager.m in Sources */,
 				721816D620C382AD00207647 /* NSDate+ext.m in Sources */,
