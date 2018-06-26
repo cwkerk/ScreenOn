@@ -10,6 +10,8 @@
 
 @implementation UIViewController (ext)
 
+#pragma container view controller handling
+
 - (void)showContentViewController:(UIViewController* _Nonnull)vc underRect:(CGRect)rect inView:(UIView * _Nonnull)view {
     [self addChildViewController:vc];
     [vc.view setFrame:rect];
@@ -39,6 +41,29 @@
         [from removeFromParentViewController];
         [to didMoveToParentViewController:self];
     }];
+}
+
+#pragma popover view controller handling
+
+- (void) popoverWithViewController:(UIViewController *)viewCtrl ForView:(UIView *)sender InSize:(CGSize)size {
+    if (@available(iOS 8, *)) {
+        viewCtrl.modalPresentationStyle = UIModalPresentationPopover;
+        viewCtrl.preferredContentSize = size;
+        UIPopoverPresentationController *popoverPresentController = [viewCtrl popoverPresentationController];
+        [popoverPresentController setPermittedArrowDirections:UIPopoverArrowDirectionAny];
+        [popoverPresentController setSourceRect:sender.bounds];
+        [popoverPresentController setSourceView:sender];
+        popoverPresentController.delegate = self;
+        [self presentViewController:viewCtrl animated:YES completion:nil];
+    } else {
+        UIPopoverController *popoverController = [[UIPopoverController alloc] initWithContentViewController:viewCtrl];
+        [popoverController setPopoverContentSize:size];
+        [popoverController presentPopoverFromRect:sender.bounds inView:sender permittedArrowDirections:UIPopoverArrowDirectionAny animated:YES];
+    }
+}
+
+- (UIModalPresentationStyle)adaptivePresentationStyleForPresentationController:(UIPresentationController *)controller {
+    return UIModalPresentationNone;
 }
 
 @end

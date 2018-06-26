@@ -23,7 +23,6 @@
 		72EFAFE420D39ACA00FF5352 /* UIViewController+ext.m in Sources */ = {isa = PBXBuildFile; fileRef = 72EFAFE320D39ACA00FF5352 /* UIViewController+ext.m */; };
 		72EFD5AD20D3B31C00B1E3AA /* DownloadsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 72EFD5AC20D3B31C00B1E3AA /* DownloadsViewController.m */; };
 		72EFD5B120D3BAAD00B1E3AA /* TabBarController.m in Sources */ = {isa = PBXBuildFile; fileRef = 72EFD5B020D3BAAD00B1E3AA /* TabBarController.m */; };
-		72EFD5B420D3BDBB00B1E3AA /* TopRateViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 72EFD5B320D3BDBB00B1E3AA /* TopRateViewController.m */; };
 		72F04C1E20BAA45E00DA34D2 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 72F04C1C20BAA45E00DA34D2 /* Main.storyboard */; };
 		72F04C2120BAA45E00DA34D2 /* ScreenOn.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 72F04C1F20BAA45E00DA34D2 /* ScreenOn.xcdatamodeld */; };
 		72F04C2320BAA46000DA34D2 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 72F04C2220BAA46000DA34D2 /* Assets.xcassets */; };
@@ -48,6 +47,7 @@
 		A4FC0A5920E26BA100DCD90C /* ARMenuViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = A4FC0A5620E26BA000DCD90C /* ARMenuViewCell.xib */; };
 		A4FC0A5F20E26D1500DCD90C /* ARMenuViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = A4FC0A5B20E26D1300DCD90C /* ARMenuViewController.xib */; };
 		A4FC0A6020E26D1500DCD90C /* ARMenuViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = A4FC0A5E20E26D1500DCD90C /* ARMenuViewController.m */; };
+		A4FC0A6420E26EDD00DCD90C /* MenuItem.m in Sources */ = {isa = PBXBuildFile; fileRef = A4FC0A6320E26EDD00DCD90C /* MenuItem.m */; };
 		AEC5D61B923CC126D927F817 /* libPods-ScreenOnTests.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 000EE2E0697B2606E5CA6249 /* libPods-ScreenOnTests.a */; };
 /* End PBXBuildFile section */
 
@@ -104,8 +104,6 @@
 		72EFD5AC20D3B31C00B1E3AA /* DownloadsViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = DownloadsViewController.m; sourceTree = "<group>"; };
 		72EFD5AF20D3BAAD00B1E3AA /* TabBarController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = TabBarController.h; sourceTree = "<group>"; };
 		72EFD5B020D3BAAD00B1E3AA /* TabBarController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = TabBarController.m; sourceTree = "<group>"; };
-		72EFD5B220D3BDBB00B1E3AA /* TopRateViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = TopRateViewController.h; sourceTree = "<group>"; };
-		72EFD5B320D3BDBB00B1E3AA /* TopRateViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = TopRateViewController.m; sourceTree = "<group>"; };
 		72F04C1320BAA45E00DA34D2 /* ScreenOn.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = ScreenOn.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		72F04C1620BAA45E00DA34D2 /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
 		72F04C1D20BAA45E00DA34D2 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
@@ -151,6 +149,8 @@
 		A4FC0A5C20E26D1400DCD90C /* ARMenuViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ARMenuViewController.h; sourceTree = "<group>"; };
 		A4FC0A5D20E26D1400DCD90C /* ARMenuViewControllerDelegate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ARMenuViewControllerDelegate.h; sourceTree = "<group>"; };
 		A4FC0A5E20E26D1500DCD90C /* ARMenuViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ARMenuViewController.m; sourceTree = "<group>"; };
+		A4FC0A6220E26EDD00DCD90C /* MenuItem.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = MenuItem.h; sourceTree = "<group>"; };
+		A4FC0A6320E26EDD00DCD90C /* MenuItem.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = MenuItem.m; sourceTree = "<group>"; };
 		B4FBDDAAFA8ED0985C05833B /* libPods-ScreenOn.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-ScreenOn.a"; sourceTree = BUILT_PRODUCTS_DIR; };
 		F5A73F95CEDD1DA09F0E0BDE /* Pods-ScreenOnUITests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-ScreenOnUITests.release.xcconfig"; path = "Pods/Target Support Files/Pods-ScreenOnUITests/Pods-ScreenOnUITests.release.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -391,6 +391,7 @@
 		72F04C4B20BAA46B00DA34D2 /* Model */ = {
 			isa = PBXGroup;
 			children = (
+				A4FC0A6120E26EC600DCD90C /* DataStruct */,
 				72EE644720BAE7B30019AC72 /* Datastore */,
 				72EE644620BAE7A40019AC72 /* Device Util */,
 				72AB4C2220D350D200838B96 /* System */,
@@ -421,8 +422,6 @@
 				72EFD5AC20D3B31C00B1E3AA /* DownloadsViewController.m */,
 				A40046A320E111C300269E1D /* ARViewController.h */,
 				A40046A220E111C200269E1D /* ARViewController.m */,
-				72EFD5B220D3BDBB00B1E3AA /* TopRateViewController.h */,
-				72EFD5B320D3BDBB00B1E3AA /* TopRateViewController.m */,
 			);
 			path = ViewController;
 			sourceTree = "<group>";
@@ -434,6 +433,15 @@
 				72EFAFE320D39ACA00FF5352 /* UIViewController+ext.m */,
 			);
 			path = Extension;
+			sourceTree = "<group>";
+		};
+		A4FC0A6120E26EC600DCD90C /* DataStruct */ = {
+			isa = PBXGroup;
+			children = (
+				A4FC0A6220E26EDD00DCD90C /* MenuItem.h */,
+				A4FC0A6320E26EDD00DCD90C /* MenuItem.m */,
+			);
+			path = DataStruct;
 			sourceTree = "<group>";
 		};
 		BB1FE5AC49F01570E60F9C69 /* Pods */ = {
@@ -671,7 +679,6 @@
 			buildActionMask = 2147483647;
 			files = (
 				A4FC0A5120E26A6C00DCD90C /* RoundedButton.m in Sources */,
-				72EFD5B420D3BDBB00B1E3AA /* TopRateViewController.m in Sources */,
 				A4FC0A6020E26D1500DCD90C /* ARMenuViewController.m in Sources */,
 				72EFAFE420D39ACA00FF5352 /* UIViewController+ext.m in Sources */,
 				72F3C14920D51A4E00E328AC /* CardView.m in Sources */,
@@ -680,6 +687,7 @@
 				A40046A120E110CE00269E1D /* LoginViewController.m in Sources */,
 				A40046AA20E12CB100269E1D /* MainTabItemViewController.m in Sources */,
 				72AB4C2B20D35AD500838B96 /* LAContext+ext.m in Sources */,
+				A4FC0A6420E26EDD00DCD90C /* MenuItem.m in Sources */,
 				A4465FCC20DFE9B6009CEB92 /* UIImageView+ext.m in Sources */,
 				72EFD5AD20D3B31C00B1E3AA /* DownloadsViewController.m in Sources */,
 				72EF357D20C2B2D50047B935 /* CoreDataManager.m in Sources */,

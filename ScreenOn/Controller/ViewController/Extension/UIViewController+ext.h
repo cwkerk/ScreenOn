@@ -8,12 +8,14 @@
 
 #import <UIKit/UIKit.h>
 
-@interface UIViewController (ext)
+@interface UIViewController (ext) <UIPopoverPresentationControllerDelegate>
 
 - (void)showContentViewController:(UIViewController* _Nonnull)vc underRect:(CGRect)rect inView:(UIView * _Nonnull)view;
 
 - (void) hideContentViewController:(UIViewController* _Nonnull)vc;
 
 - (void)swapContenViewControllersFrom:(UIViewController* _Nonnull)from to:(UIViewController* _Nonnull)to inView:(UIView * _Nonnull)view animateWith:(UIViewAnimationOptions)opt;
+
+- (void)popoverWithViewController:(UIViewController *)viewCtrl ForView:(UIView *)sender InSize:(CGSize)size;
 
 @end
