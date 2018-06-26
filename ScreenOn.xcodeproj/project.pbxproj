@@ -9,8 +9,6 @@
 /* Begin PBXBuildFile section */
 		29656812094017C4C64132D9 /* libPods-ScreenOnUITests.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 1475FAF18998C274EA54E64E /* libPods-ScreenOnUITests.a */; };
 		721816D620C382AD00207647 /* NSDate+ext.m in Sources */ = {isa = PBXBuildFile; fileRef = 721816D520C382AD00207647 /* NSDate+ext.m */; };
-		72367F8820D4A396000A518D /* DemoAViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 72367F8720D4A396000A518D /* DemoAViewController.m */; };
-		72367F8B20D4A3BE000A518D /* DemoBViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 72367F8A20D4A3BE000A518D /* DemoBViewController.m */; };
 		72AB4C2520D350F800838B96 /* UserNotificationManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 72AB4C2420D350F800838B96 /* UserNotificationManager.m */; };
 		72AB4C2B20D35AD500838B96 /* LAContext+ext.m in Sources */ = {isa = PBXBuildFile; fileRef = 72AB4C2A20D35AD500838B96 /* LAContext+ext.m */; };
 		72AB4C2E20D35FF800838B96 /* UIView+ext.m in Sources */ = {isa = PBXBuildFile; fileRef = 72AB4C2D20D35FF800838B96 /* UIView+ext.m */; };
@@ -48,6 +46,8 @@
 		A4FC0A5420E26AB300DCD90C /* ARSCNView+ext.m in Sources */ = {isa = PBXBuildFile; fileRef = A4FC0A5320E26AB300DCD90C /* ARSCNView+ext.m */; };
 		A4FC0A5820E26BA100DCD90C /* ARMenuViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = A4FC0A5520E26B9F00DCD90C /* ARMenuViewCell.m */; };
 		A4FC0A5920E26BA100DCD90C /* ARMenuViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = A4FC0A5620E26BA000DCD90C /* ARMenuViewCell.xib */; };
+		A4FC0A5F20E26D1500DCD90C /* ARMenuViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = A4FC0A5B20E26D1300DCD90C /* ARMenuViewController.xib */; };
+		A4FC0A6020E26D1500DCD90C /* ARMenuViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = A4FC0A5E20E26D1500DCD90C /* ARMenuViewController.m */; };
 		AEC5D61B923CC126D927F817 /* libPods-ScreenOnTests.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 000EE2E0697B2606E5CA6249 /* libPods-ScreenOnTests.a */; };
 /* End PBXBuildFile section */
 
@@ -78,10 +78,6 @@
 		673FC7D1314B7AFCB444DEDB /* Pods-ScreenOn.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-ScreenOn.debug.xcconfig"; path = "Pods/Target Support Files/Pods-ScreenOn/Pods-ScreenOn.debug.xcconfig"; sourceTree = "<group>"; };
 		721816D420C382AD00207647 /* NSDate+ext.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "NSDate+ext.h"; sourceTree = "<group>"; };
 		721816D520C382AD00207647 /* NSDate+ext.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = "NSDate+ext.m"; sourceTree = "<group>"; };
-		72367F8620D4A396000A518D /* DemoAViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = DemoAViewController.h; sourceTree = "<group>"; };
-		72367F8720D4A396000A518D /* DemoAViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = DemoAViewController.m; sourceTree = "<group>"; };
-		72367F8920D4A3BE000A518D /* DemoBViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = DemoBViewController.h; sourceTree = "<group>"; };
-		72367F8A20D4A3BE000A518D /* DemoBViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = DemoBViewController.m; sourceTree = "<group>"; };
 		72AB4C2320D350F800838B96 /* UserNotificationManager.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = UserNotificationManager.h; sourceTree = "<group>"; };
 		72AB4C2420D350F800838B96 /* UserNotificationManager.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = UserNotificationManager.m; sourceTree = "<group>"; };
 		72AB4C2920D35AD500838B96 /* LAContext+ext.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "LAContext+ext.h"; sourceTree = "<group>"; };
@@ -151,6 +147,10 @@
 		A4FC0A5520E26B9F00DCD90C /* ARMenuViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ARMenuViewCell.m; sourceTree = "<group>"; };
 		A4FC0A5620E26BA000DCD90C /* ARMenuViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = ARMenuViewCell.xib; sourceTree = "<group>"; };
 		A4FC0A5720E26BA000DCD90C /* ARMenuViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ARMenuViewCell.h; sourceTree = "<group>"; };
+		A4FC0A5B20E26D1300DCD90C /* ARMenuViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = ARMenuViewController.xib; sourceTree = "<group>"; };
+		A4FC0A5C20E26D1400DCD90C /* ARMenuViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ARMenuViewController.h; sourceTree = "<group>"; };
+		A4FC0A5D20E26D1400DCD90C /* ARMenuViewControllerDelegate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ARMenuViewControllerDelegate.h; sourceTree = "<group>"; };
+		A4FC0A5E20E26D1500DCD90C /* ARMenuViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ARMenuViewController.m; sourceTree = "<group>"; };
 		B4FBDDAAFA8ED0985C05833B /* libPods-ScreenOn.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-ScreenOn.a"; sourceTree = BUILT_PRODUCTS_DIR; };
 		F5A73F95CEDD1DA09F0E0BDE /* Pods-ScreenOnUITests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-ScreenOnUITests.release.xcconfig"; path = "Pods/Target Support Files/Pods-ScreenOnUITests/Pods-ScreenOnUITests.release.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -324,8 +324,14 @@
 			children = (
 				72EFD5AF20D3BAAD00B1E3AA /* TabBarController.h */,
 				72EFD5B020D3BAAD00B1E3AA /* TabBarController.m */,
+				72EFAFDF20D39A3E00FF5352 /* AdmobViewController.h */,
+				72EFAFE020D39A3E00FF5352 /* AdmobViewController.m */,
 				A40046A820E12CB100269E1D /* MainTabItemViewController.h */,
 				A40046A920E12CB100269E1D /* MainTabItemViewController.m */,
+				A4FC0A5C20E26D1400DCD90C /* ARMenuViewController.h */,
+				A4FC0A5E20E26D1500DCD90C /* ARMenuViewController.m */,
+				A4FC0A5B20E26D1300DCD90C /* ARMenuViewController.xib */,
+				A4FC0A5D20E26D1400DCD90C /* ARMenuViewControllerDelegate.h */,
 			);
 			path = ContainerController;
 			sourceTree = "<group>";
@@ -408,10 +414,7 @@
 		72F1F11720BC52BD00ACF7BA /* ViewController */ = {
 			isa = PBXGroup;
 			children = (
-				72EFAFE220D39ACA00FF5352 /* UIViewController+ext.h */,
-				72EFAFE320D39ACA00FF5352 /* UIViewController+ext.m */,
-				72EFAFDF20D39A3E00FF5352 /* AdmobViewController.h */,
-				72EFAFE020D39A3E00FF5352 /* AdmobViewController.m */,
+				A4FC0A5A20E26CAA00DCD90C /* Extension */,
 				A4465FCD20DFE9F7009CEB92 /* LoginViewController.h */,
 				A40046A020E110CE00269E1D /* LoginViewController.m */,
 				72EFD5AB20D3B31C00B1E3AA /* DownloadsViewController.h */,
@@ -420,12 +423,17 @@
 				A40046A220E111C200269E1D /* ARViewController.m */,
 				72EFD5B220D3BDBB00B1E3AA /* TopRateViewController.h */,
 				72EFD5B320D3BDBB00B1E3AA /* TopRateViewController.m */,
-				72367F8620D4A396000A518D /* DemoAViewController.h */,
-				72367F8720D4A396000A518D /* DemoAViewController.m */,
-				72367F8920D4A3BE000A518D /* DemoBViewController.h */,
-				72367F8A20D4A3BE000A518D /* DemoBViewController.m */,
 			);
 			path = ViewController;
+			sourceTree = "<group>";
+		};
+		A4FC0A5A20E26CAA00DCD90C /* Extension */ = {
+			isa = PBXGroup;
+			children = (
+				72EFAFE220D39ACA00FF5352 /* UIViewController+ext.h */,
+				72EFAFE320D39ACA00FF5352 /* UIViewController+ext.m */,
+			);
+			path = Extension;
 			sourceTree = "<group>";
 		};
 		BB1FE5AC49F01570E60F9C69 /* Pods */ = {
@@ -554,6 +562,7 @@
 				72ED683B20D4B3BA00E00775 /* LoginView.xib in Resources */,
 				A4FC0A5920E26BA100DCD90C /* ARMenuViewCell.xib in Resources */,
 				72CFF57B20CBB4780054C564 /* google.plist in Resources */,
+				A4FC0A5F20E26D1500DCD90C /* ARMenuViewController.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -663,6 +672,7 @@
 			files = (
 				A4FC0A5120E26A6C00DCD90C /* RoundedButton.m in Sources */,
 				72EFD5B420D3BDBB00B1E3AA /* TopRateViewController.m in Sources */,
+				A4FC0A6020E26D1500DCD90C /* ARMenuViewController.m in Sources */,
 				72EFAFE420D39ACA00FF5352 /* UIViewController+ext.m in Sources */,
 				72F3C14920D51A4E00E328AC /* CardView.m in Sources */,
 				A400469D20E1100E00269E1D /* AVAssetWriter+ext.m in Sources */,
@@ -682,8 +692,6 @@
 				72EFAFE120D39A3E00FF5352 /* AdmobViewController.m in Sources */,
 				72EF357A20C2B2920047B935 /* NSPersistentStoreCoordinator+ext.m in Sources */,
 				72F04C2120BAA45E00DA34D2 /* ScreenOn.xcdatamodeld in Sources */,
-				72367F8B20D4A3BE000A518D /* DemoBViewController.m in Sources */,
-				72367F8820D4A396000A518D /* DemoAViewController.m in Sources */,
 				A400469F20E1107F00269E1D /* AppDelegate.m in Sources */,
 				72F04C2920BAA46000DA34D2 /* main.m in Sources */,
 				72ED683920D4B3B000E00775 /* LoginView.m in Sources */,
