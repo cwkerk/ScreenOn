@@ -35,7 +35,6 @@
 		A400469D20E1100E00269E1D /* AVAssetWriter+ext.m in Sources */ = {isa = PBXBuildFile; fileRef = A400469B20E1100E00269E1D /* AVAssetWriter+ext.m */; };
 		A400469F20E1107F00269E1D /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = A400469E20E1107F00269E1D /* AppDelegate.m */; };
 		A40046A120E110CE00269E1D /* LoginViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = A40046A020E110CE00269E1D /* LoginViewController.m */; };
-		A40046A420E111C300269E1D /* ARViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = A40046A220E111C200269E1D /* ARViewController.m */; };
 		A40046A720E1120600269E1D /* VideoPlayer.m in Sources */ = {isa = PBXBuildFile; fileRef = A40046A620E1120600269E1D /* VideoPlayer.m */; };
 		A40046AA20E12CB100269E1D /* MainTabItemViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = A40046A920E12CB100269E1D /* MainTabItemViewController.m */; };
 		A40046AD20E1325900269E1D /* KeychainManager.m in Sources */ = {isa = PBXBuildFile; fileRef = A40046AC20E1325900269E1D /* KeychainManager.m */; };
@@ -48,6 +47,7 @@
 		A4FC0A5F20E26D1500DCD90C /* ARMenuViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = A4FC0A5B20E26D1300DCD90C /* ARMenuViewController.xib */; };
 		A4FC0A6020E26D1500DCD90C /* ARMenuViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = A4FC0A5E20E26D1500DCD90C /* ARMenuViewController.m */; };
 		A4FC0A6420E26EDD00DCD90C /* MenuItem.m in Sources */ = {isa = PBXBuildFile; fileRef = A4FC0A6320E26EDD00DCD90C /* MenuItem.m */; };
+		A4FC0A6720E26FF400DCD90C /* ARViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = A4FC0A6520E26FF400DCD90C /* ARViewController.m */; };
 		AEC5D61B923CC126D927F817 /* libPods-ScreenOnTests.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 000EE2E0697B2606E5CA6249 /* libPods-ScreenOnTests.a */; };
 /* End PBXBuildFile section */
 
@@ -124,8 +124,6 @@
 		A400469C20E1100E00269E1D /* AVAssetWriter+ext.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "AVAssetWriter+ext.h"; sourceTree = "<group>"; };
 		A400469E20E1107F00269E1D /* AppDelegate.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
 		A40046A020E110CE00269E1D /* LoginViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LoginViewController.m; sourceTree = "<group>"; };
-		A40046A220E111C200269E1D /* ARViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ARViewController.m; sourceTree = "<group>"; };
-		A40046A320E111C300269E1D /* ARViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ARViewController.h; sourceTree = "<group>"; };
 		A40046A520E1120600269E1D /* VideoPlayer.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = VideoPlayer.h; sourceTree = "<group>"; };
 		A40046A620E1120600269E1D /* VideoPlayer.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = VideoPlayer.m; sourceTree = "<group>"; };
 		A40046A820E12CB100269E1D /* MainTabItemViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = MainTabItemViewController.h; sourceTree = "<group>"; };
@@ -151,6 +149,8 @@
 		A4FC0A5E20E26D1500DCD90C /* ARMenuViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ARMenuViewController.m; sourceTree = "<group>"; };
 		A4FC0A6220E26EDD00DCD90C /* MenuItem.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = MenuItem.h; sourceTree = "<group>"; };
 		A4FC0A6320E26EDD00DCD90C /* MenuItem.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = MenuItem.m; sourceTree = "<group>"; };
+		A4FC0A6520E26FF400DCD90C /* ARViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ARViewController.m; sourceTree = "<group>"; };
+		A4FC0A6620E26FF400DCD90C /* ARViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ARViewController.h; sourceTree = "<group>"; };
 		B4FBDDAAFA8ED0985C05833B /* libPods-ScreenOn.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-ScreenOn.a"; sourceTree = BUILT_PRODUCTS_DIR; };
 		F5A73F95CEDD1DA09F0E0BDE /* Pods-ScreenOnUITests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-ScreenOnUITests.release.xcconfig"; path = "Pods/Target Support Files/Pods-ScreenOnUITests/Pods-ScreenOnUITests.release.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -418,10 +418,10 @@
 				A4FC0A5A20E26CAA00DCD90C /* Extension */,
 				A4465FCD20DFE9F7009CEB92 /* LoginViewController.h */,
 				A40046A020E110CE00269E1D /* LoginViewController.m */,
+				A4FC0A6620E26FF400DCD90C /* ARViewController.h */,
+				A4FC0A6520E26FF400DCD90C /* ARViewController.m */,
 				72EFD5AB20D3B31C00B1E3AA /* DownloadsViewController.h */,
 				72EFD5AC20D3B31C00B1E3AA /* DownloadsViewController.m */,
-				A40046A320E111C300269E1D /* ARViewController.h */,
-				A40046A220E111C200269E1D /* ARViewController.m */,
 			);
 			path = ViewController;
 			sourceTree = "<group>";
@@ -683,7 +683,6 @@
 				72EFAFE420D39ACA00FF5352 /* UIViewController+ext.m in Sources */,
 				72F3C14920D51A4E00E328AC /* CardView.m in Sources */,
 				A400469D20E1100E00269E1D /* AVAssetWriter+ext.m in Sources */,
-				A40046A420E111C300269E1D /* ARViewController.m in Sources */,
 				A40046A120E110CE00269E1D /* LoginViewController.m in Sources */,
 				A40046AA20E12CB100269E1D /* MainTabItemViewController.m in Sources */,
 				72AB4C2B20D35AD500838B96 /* LAContext+ext.m in Sources */,
@@ -698,6 +697,7 @@
 				72AB4C2520D350F800838B96 /* UserNotificationManager.m in Sources */,
 				721816D620C382AD00207647 /* NSDate+ext.m in Sources */,
 				72EFAFE120D39A3E00FF5352 /* AdmobViewController.m in Sources */,
+				A4FC0A6720E26FF400DCD90C /* ARViewController.m in Sources */,
 				72EF357A20C2B2920047B935 /* NSPersistentStoreCoordinator+ext.m in Sources */,
 				72F04C2120BAA45E00DA34D2 /* ScreenOn.xcdatamodeld in Sources */,
 				A400469F20E1107F00269E1D /* AppDelegate.m in Sources */,

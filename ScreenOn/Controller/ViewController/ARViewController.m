@@ -20,16 +20,15 @@
         self->_arScnView = [[ARSCNView alloc] initWithFrame:self.view.bounds];
         [self.arScnView setDelegate:self];
         [self.view addSubview:self.arScnView];
+        [self.view bringSubviewToFront:self.menuButton];
         UIPanGestureRecognizer *pan = [[UIPanGestureRecognizer alloc] initWithTarget:self action:@selector(panGestureHandler:)];
         UITapGestureRecognizer *tap = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(tapGestureHandler:)];
         [self.arScnView addGestureRecognizer:pan];
         [self.arScnView addGestureRecognizer:tap];
+        [[RPScreenRecorder sharedRecorder] setDelegate:self];
+    } else {
+        [self.navigationController popViewControllerAnimated:YES];
     }
-    [self.snapShotBtn.imageView setTintColor:[UIColor whiteColor]];
-    [self.videoRecordBtn.imageView setTintColor:[UIColor whiteColor]];
-    [self.view bringSubviewToFront:self.snapShotBtn];
-    [self.view bringSubviewToFront:self.videoRecordBtn];
-    [[RPScreenRecorder sharedRecorder] setDelegate:self];
 }
 
 - (void)viewWillAppear:(BOOL)animated {
@@ -49,52 +48,9 @@
     }
 }
 
-- (IBAction)takeSnapshot:(id)sender {
-    if (@available(iOS 11.0, *)) {
-        UIImage *shapShot = [self.arScnView snapshot];
-        NSData *data = UIImagePNGRepresentation(shapShot);
-        [[CoreDataManager sharedInstance] upsertForEntity:@"Record" withQuery:@"name=%@" andArgs:@[@"test"] targetParams: @{@"name": @"test", @"date": [NSDate date], @"data": data, @"format": @"png"}];
-    }
-}
-
-- (IBAction)recordVideo:(UIButton *)sender {
-    if (@available(iOS 11.0, *)) {
-        if ([[RPScreenRecorder sharedRecorder] isAvailable]) {
-            if (CGColorEqualToColor(sender.imageView.tintColor.CGColor, [UIColor whiteColor].CGColor)) {
-                self->_assetWriter = [[AVAssetWriter alloc] initWithName:[NSString stringWithFormat:@"test_%@.mp4", [[NSDate date] toStringForFormat:@"yyyyMMddHHmmss"]] InRect:self.view.bounds];
-                [[RPScreenRecorder sharedRecorder] startCaptureWithHandler:^(CMSampleBufferRef  _Nonnull sampleBuffer, RPSampleBufferType bufferType, NSError * _Nullable error) {
-                    if (CMSampleBufferDataIsReady(sampleBuffer)) {
-                        if (self.assetWriter.status == AVAssetWriterStatusUnknown) {
-                            [self.assetWriter startWriting];
-                            [self.assetWriter startSessionAtSourceTime:CMSampleBufferGetPresentationTimeStamp(sampleBuffer)];
-                        }
-                    }
-                    if (bufferType == RPSampleBufferTypeVideo && self.assetWriter.inputs.firstObject.isReadyForMoreMediaData) {
-                        [self.assetWriter.inputs.firstObject appendSampleBuffer:sampleBuffer];
-                    }
-                } completionHandler:^(NSError * _Nullable error) {
-                    if (error != nil) {
-                        NSLog(@"Screen recording is failed to start due to : %@", [error localizedDescription]);
-                    }
-                }];
-                [self.videoRecordBtn.imageView setTintColor:[UIColor redColor]];
-            } else {
-                [[RPScreenRecorder sharedRecorder] stopCaptureWithHandler:^(NSError * _Nullable error) {
-                    [self.assetWriter finishWritingWithCompletionHandler:^{
-                        if (error != nil) {
-                            NSLog(@"Failed to start recording due to %@", [error localizedDescription]);
-                        } else {
-                            NSLog(@"Video is recorded in URL: %@", self.assetWriter.outputURL);
-                            [VideoPlayer playVideoOfURL:self.assetWriter.outputURL OnViewController:self];
-                        }
-                    }];
-                }];
-                [self.videoRecordBtn.imageView setTintColor:[UIColor whiteColor]];
-            }
-        } else {
-            NSLog(@"Failed to start/stop recording due to Screen recorder is not available");
-        }
-    }
+- (IBAction)openMenu:(id)sender {
+    ARMenuViewController *menu = [[ARMenuViewController alloc] init];
+    [self popoverWithViewController:menu ForView:self.menuButton InSize:CGSizeMake(self.view.bounds.size.width, 64) InDirection:UIPopoverArrowDirectionUp];
 }
 
 #pragma private functions
@@ -121,15 +77,19 @@
 
 - (void)tapGestureHandler:(UITapGestureRecognizer *)sender {
     if (@available(iOS 11.0, *)) {
-        SCNBox *box = [SCNBox boxWithWidth:0.05 height:0.05 length:0.05 chamferRadius:0.005];
-        [self.arScnView makeNodeFor:box atPoint:[sender locationInView:self.arScnView]];
-        NSArray<SCNNode *> *nodes = self.arScnView.scene.rootNode.childNodes;
-        if (nodes.count > 1) {
-            SCNNode *nodeA = [nodes objectAtIndex:nodes.count - 2];
-            SCNNode *nodeB = [nodes objectAtIndex:nodes.count - 1];
-            CGFloat distanceInInch = [nodeA distanceFrom:nodeB unit:INCH];
-            NSString *title = [NSString stringWithFormat:@"Distance from previous node is %f", distanceInInch];
-            self.navigationItem.title = title;
+        CGPoint position = [sender locationInView:self.arScnView];
+        SCNHitTestResult *result = [self.arScnView hitTest:position options:nil].firstObject;
+        if (result == nil) {
+            SCNBox *box = [SCNBox boxWithWidth:0.05 height:0.05 length:0.05 chamferRadius:0.005];
+            [self.arScnView makeNodeFor:box atPoint:[sender locationInView:self.arScnView]];
+        } else {
+            UIAlertController *alert = [UIAlertController alertControllerWithTitle:@"Delete this object!?" message:@"Reminder: his action cannot be undone" preferredStyle:UIAlertControllerStyleAlert];
+            UIAlertAction *proceed = [UIAlertAction actionWithTitle:@"Proceed" style:UIAlertActionStyleDefault handler:^(UIAlertAction * _Nonnull action) {
+                [result.node removeFromParentNode];
+            }];
+            [alert addAction:proceed];
+            [alert addAction:[UIAlertAction actionWithTitle:@"Cancel" style:UIAlertActionStyleCancel handler:nil]];
+            [self presentViewController:alert animated:YES completion:nil];
         }
     }
 }
@@ -178,6 +138,17 @@
 
 - (void)screenRecorder:(RPScreenRecorder *)screenRecorder didStopRecordingWithPreviewViewController:(RPPreviewViewController *)previewViewController error:(NSError *)error {
     NSLog(@"Screen recorder stopped with preview due to error : %@", [error localizedDescription]);
+}
+
+#pragma ARMenuViewControllerDelegate
+
+- (NSArray<MenuItem *> * _Nonnull)getMenuItems {
+    MenuItem *itemA = [[MenuItem alloc] init];
+    itemA.imageName = @"Camera";
+    MenuItem *itemB = [[MenuItem alloc] init];
+    itemB.imageName = @"Record";
+    NSArray<MenuItem *> *list = [NSArray arrayWithObjects:itemA, itemB, nil];
+    return list;
 }
 
 @end

@@ -45,12 +45,12 @@
 
 #pragma popover view controller handling
 
-- (void) popoverWithViewController:(UIViewController *)viewCtrl ForView:(UIView *)sender InSize:(CGSize)size {
+- (void) popoverWithViewController:(UIViewController *)viewCtrl ForView:(UIView *)sender InSize:(CGSize)size InDirection:(UIPopoverArrowDirection)direction {
     if (@available(iOS 8, *)) {
         viewCtrl.modalPresentationStyle = UIModalPresentationPopover;
         viewCtrl.preferredContentSize = size;
         UIPopoverPresentationController *popoverPresentController = [viewCtrl popoverPresentationController];
-        [popoverPresentController setPermittedArrowDirections:UIPopoverArrowDirectionAny];
+        [popoverPresentController setPermittedArrowDirections:direction];
         [popoverPresentController setSourceRect:sender.bounds];
         [popoverPresentController setSourceView:sender];
         popoverPresentController.delegate = self;

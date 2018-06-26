@@ -7,23 +7,30 @@
 //
 
 #import <UIKit/UIKit.h>
-#import <ARKit/ARKit.h>
 #import <SceneKit/SceneKit.h>
-#import "ARSCNView+ext.h"
-#import "AVAssetWriter+ext.h"
-#import "CoreDataManager.h"
+#import "ARMenuViewController.h"
+#import "ARMenuViewControllerDelegate.h"
 #import "NSDate+ext.h"
-#import "SCNNode+ext.h"
+#import "RoundedButton.h"
 #import "VideoPlayer.h"
 
-#ifdef __IPHONE_9_0
+#ifdef __IPHONE_11_0
+
+#import <ARKit/ARKit.h>
+#import <ReplayKit/ReplayKit.h>
+#import "ARSCNView+ext.h"
+#import "UIViewController+ext.h"
+#import "VideoRecorder.h"
+#define DELEGATE ARSCNViewDelegate, RPScreenRecorderDelegate, ARMenuViewControllerDelegate
+
+#elif __IPHONE_9_0
 
 #import <ReplayKit/ReplayKit.h>
-#define DELEGATE ARSCNViewDelegate, RPScreenRecorderDelegate
+#define DELEGATE ARSCNViewDelegate, RPScreenRecorderDelegate, ARMenuViewControllerDelegate
 
 #else
 
-#define DELEGATE NSObject
+#define DELEGATE ARMenuViewControllerDelegate
 
 #endif
 
@@ -33,10 +40,8 @@
 
 @property (strong, nonatomic, readonly) SCNNode *panningNode NS_AVAILABLE_IOS(11.0);
 
-@property (strong, nonatomic, readonly) AVAssetWriter *assetWriter;
+@property (strong, nonatomic, readonly) VideoRecorder *recorder;
 
-@property (weak, nonatomic) IBOutlet UIButton *snapShotBtn;
-
-@property (weak, nonatomic) IBOutlet UIButton *videoRecordBtn;
+@property (weak, nonatomic) IBOutlet RoundedButton *menuButton;
 
 @end

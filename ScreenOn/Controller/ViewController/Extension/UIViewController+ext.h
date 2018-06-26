@@ -16,6 +16,6 @@
 
 - (void)swapContenViewControllersFrom:(UIViewController* _Nonnull)from to:(UIViewController* _Nonnull)to inView:(UIView * _Nonnull)view animateWith:(UIViewAnimationOptions)opt;
 
-- (void)popoverWithViewController:(UIViewController *)viewCtrl ForView:(UIView *)sender InSize:(CGSize)size;
+- (void) popoverWithViewController:(UIViewController *)viewCtrl ForView:(UIView *)sender InSize:(CGSize)size InDirection:(UIPopoverArrowDirection)direction;
 
 @end
