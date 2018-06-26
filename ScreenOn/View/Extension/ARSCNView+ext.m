@@ -21,4 +21,15 @@
     [self.scene.rootNode addChildNode:node];
 }
 
+- (CGFloat)getDistanceOfNewlyAddedNodeFromLastNode {
+    NSArray<SCNNode *> *nodes = self.scene.rootNode.childNodes;
+    if (nodes.count > 1) {
+        SCNNode *nodeA = [nodes objectAtIndex:nodes.count - 2];
+        SCNNode *nodeB = [nodes objectAtIndex:nodes.count - 1];
+        return [nodeA distanceFrom:nodeB unit:INCH];
+    } else {
+        return 0;
+    }
+}
+
 @end

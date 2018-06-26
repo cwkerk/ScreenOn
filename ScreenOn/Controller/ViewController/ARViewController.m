@@ -61,7 +61,7 @@
     if (@available(iOS 11.0, *)) {
         if ([[RPScreenRecorder sharedRecorder] isAvailable]) {
             if (CGColorEqualToColor(sender.imageView.tintColor.CGColor, [UIColor whiteColor].CGColor)) {
-                self->_assetWriter = [[AVAssetWriter alloc] initWithName:[NSString stringWithFormat:@"test_%@.mp4", [[NSDate date] toStringForFormat:@"yyyyMMddHHmmss"]] InBound:self.view.bounds];
+                self->_assetWriter = [[AVAssetWriter alloc] initWithName:[NSString stringWithFormat:@"test_%@.mp4", [[NSDate date] toStringForFormat:@"yyyyMMddHHmmss"]] InRect:self.view.bounds];
                 [[RPScreenRecorder sharedRecorder] startCaptureWithHandler:^(CMSampleBufferRef  _Nonnull sampleBuffer, RPSampleBufferType bufferType, NSError * _Nullable error) {
                     if (CMSampleBufferDataIsReady(sampleBuffer)) {
                         if (self.assetWriter.status == AVAssetWriterStatusUnknown) {

@@ -10,6 +10,6 @@
 
 @interface AVAssetWriter (ext)
 
-- (instancetype _Nonnull)initWithName:(NSString * _Nonnull)fileName InBound:(CGRect)rect;
+- (instancetype _Nonnull)initWithName:(NSString * _Nonnull)fileName InRect:(CGRect)rect;
 
 @end

@@ -10,7 +10,7 @@
 
 @implementation AVAssetWriter (ext)
 
-- (instancetype)initWithName:(NSString * _Nonnull)fileName InBound:(CGRect)rect {
+- (instancetype)initWithName:(NSString * _Nonnull)fileName InRect:(CGRect)rect {
     NSURL *assetURL = [[NSFileManager defaultManager] URLsForDirectory:NSDocumentDirectory inDomains:NSUserDomainMask][0];
     assetURL = [assetURL URLByAppendingPathComponent:fileName];
     NSError *error;

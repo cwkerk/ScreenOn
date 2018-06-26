@@ -18,7 +18,6 @@
 		72ED683920D4B3B000E00775 /* LoginView.m in Sources */ = {isa = PBXBuildFile; fileRef = 72ED683820D4B3B000E00775 /* LoginView.m */; };
 		72ED683B20D4B3BA00E00775 /* LoginView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 72ED683A20D4B3BA00E00775 /* LoginView.xib */; };
 		72EE7B2F20D77752006C7C43 /* SCNNode+ext.m in Sources */ = {isa = PBXBuildFile; fileRef = 72EE7B2E20D77752006C7C43 /* SCNNode+ext.m */; };
-		72EE7B3220D77BC7006C7C43 /* ARSCNView+ext.m in Sources */ = {isa = PBXBuildFile; fileRef = 72EE7B3120D77BC7006C7C43 /* ARSCNView+ext.m */; };
 		72EF357A20C2B2920047B935 /* NSPersistentStoreCoordinator+ext.m in Sources */ = {isa = PBXBuildFile; fileRef = 72EF357820C2B2920047B935 /* NSPersistentStoreCoordinator+ext.m */; };
 		72EF357D20C2B2D50047B935 /* CoreDataManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 72EF357B20C2B2D50047B935 /* CoreDataManager.m */; };
 		72EF358320C2B3270047B935 /* CaptureManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 72EF358220C2B3270047B935 /* CaptureManager.m */; };
@@ -44,7 +43,11 @@
 		A40046AA20E12CB100269E1D /* MainTabItemViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = A40046A920E12CB100269E1D /* MainTabItemViewController.m */; };
 		A40046AD20E1325900269E1D /* KeychainManager.m in Sources */ = {isa = PBXBuildFile; fileRef = A40046AC20E1325900269E1D /* KeychainManager.m */; };
 		A4465FCC20DFE9B6009CEB92 /* UIImageView+ext.m in Sources */ = {isa = PBXBuildFile; fileRef = A4465FCB20DFE9B6009CEB92 /* UIImageView+ext.m */; };
-		A4FC0A4B20E2690B00DCD90C /* UIView+ext.m in Sources */ = {isa = PBXBuildFile; fileRef = A4FC0A4920E2690B00DCD90C /* UIView+ext.m */; };
+		A4FC0A4E20E269A200DCD90C /* VideoRecorder.m in Sources */ = {isa = PBXBuildFile; fileRef = A4FC0A4C20E269A200DCD90C /* VideoRecorder.m */; };
+		A4FC0A5120E26A6C00DCD90C /* RoundedButton.m in Sources */ = {isa = PBXBuildFile; fileRef = A4FC0A4F20E26A6B00DCD90C /* RoundedButton.m */; };
+		A4FC0A5420E26AB300DCD90C /* ARSCNView+ext.m in Sources */ = {isa = PBXBuildFile; fileRef = A4FC0A5320E26AB300DCD90C /* ARSCNView+ext.m */; };
+		A4FC0A5820E26BA100DCD90C /* ARMenuViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = A4FC0A5520E26B9F00DCD90C /* ARMenuViewCell.m */; };
+		A4FC0A5920E26BA100DCD90C /* ARMenuViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = A4FC0A5620E26BA000DCD90C /* ARMenuViewCell.xib */; };
 		AEC5D61B923CC126D927F817 /* libPods-ScreenOnTests.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 000EE2E0697B2606E5CA6249 /* libPods-ScreenOnTests.a */; };
 /* End PBXBuildFile section */
 
@@ -91,8 +94,6 @@
 		72ED683A20D4B3BA00E00775 /* LoginView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = LoginView.xib; sourceTree = "<group>"; };
 		72EE7B2D20D77752006C7C43 /* SCNNode+ext.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "SCNNode+ext.h"; sourceTree = "<group>"; };
 		72EE7B2E20D77752006C7C43 /* SCNNode+ext.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = "SCNNode+ext.m"; sourceTree = "<group>"; };
-		72EE7B3020D77BC7006C7C43 /* ARSCNView+ext.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "ARSCNView+ext.h"; sourceTree = "<group>"; };
-		72EE7B3120D77BC7006C7C43 /* ARSCNView+ext.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = "ARSCNView+ext.m"; sourceTree = "<group>"; };
 		72EF357820C2B2920047B935 /* NSPersistentStoreCoordinator+ext.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSPersistentStoreCoordinator+ext.m"; sourceTree = "<group>"; };
 		72EF357920C2B2920047B935 /* NSPersistentStoreCoordinator+ext.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSPersistentStoreCoordinator+ext.h"; sourceTree = "<group>"; };
 		72EF357B20C2B2D50047B935 /* CoreDataManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CoreDataManager.m; sourceTree = "<group>"; };
@@ -141,8 +142,15 @@
 		A4465FCA20DFE9B5009CEB92 /* UIImageView+ext.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIImageView+ext.h"; sourceTree = "<group>"; };
 		A4465FCB20DFE9B6009CEB92 /* UIImageView+ext.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIImageView+ext.m"; sourceTree = "<group>"; };
 		A4465FCD20DFE9F7009CEB92 /* LoginViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LoginViewController.h; sourceTree = "<group>"; };
-		A4FC0A4920E2690B00DCD90C /* UIView+ext.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIView+ext.m"; sourceTree = "<group>"; };
-		A4FC0A4A20E2690B00DCD90C /* UIView+ext.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIView+ext.h"; sourceTree = "<group>"; };
+		A4FC0A4C20E269A200DCD90C /* VideoRecorder.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = VideoRecorder.m; sourceTree = "<group>"; };
+		A4FC0A4D20E269A200DCD90C /* VideoRecorder.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = VideoRecorder.h; sourceTree = "<group>"; };
+		A4FC0A4F20E26A6B00DCD90C /* RoundedButton.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RoundedButton.m; sourceTree = "<group>"; };
+		A4FC0A5020E26A6C00DCD90C /* RoundedButton.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RoundedButton.h; sourceTree = "<group>"; };
+		A4FC0A5220E26AB300DCD90C /* ARSCNView+ext.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "ARSCNView+ext.h"; sourceTree = "<group>"; };
+		A4FC0A5320E26AB300DCD90C /* ARSCNView+ext.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "ARSCNView+ext.m"; sourceTree = "<group>"; };
+		A4FC0A5520E26B9F00DCD90C /* ARMenuViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ARMenuViewCell.m; sourceTree = "<group>"; };
+		A4FC0A5620E26BA000DCD90C /* ARMenuViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = ARMenuViewCell.xib; sourceTree = "<group>"; };
+		A4FC0A5720E26BA000DCD90C /* ARMenuViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ARMenuViewCell.h; sourceTree = "<group>"; };
 		B4FBDDAAFA8ED0985C05833B /* libPods-ScreenOn.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-ScreenOn.a"; sourceTree = BUILT_PRODUCTS_DIR; };
 		F5A73F95CEDD1DA09F0E0BDE /* Pods-ScreenOnUITests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-ScreenOnUITests.release.xcconfig"; path = "Pods/Target Support Files/Pods-ScreenOnUITests/Pods-ScreenOnUITests.release.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -188,8 +196,6 @@
 		721816D220C3822800207647 /* Extension */ = {
 			isa = PBXGroup;
 			children = (
-				72EE7B3020D77BC7006C7C43 /* ARSCNView+ext.h */,
-				72EE7B3120D77BC7006C7C43 /* ARSCNView+ext.m */,
 				721816D420C382AD00207647 /* NSDate+ext.h */,
 				721816D520C382AD00207647 /* NSDate+ext.m */,
 				72EE7B2D20D77752006C7C43 /* SCNNode+ext.h */,
@@ -229,6 +235,10 @@
 		72AB4C1A20D3481C00838B96 /* Extension */ = {
 			isa = PBXGroup;
 			children = (
+				A4FC0A5220E26AB300DCD90C /* ARSCNView+ext.h */,
+				A4FC0A5320E26AB300DCD90C /* ARSCNView+ext.m */,
+				A4FC0A5020E26A6C00DCD90C /* RoundedButton.h */,
+				A4FC0A4F20E26A6B00DCD90C /* RoundedButton.m */,
 				72AB4C2C20D35FF800838B96 /* UIView+ext.h */,
 				72AB4C2D20D35FF800838B96 /* UIView+ext.m */,
 				A4465FCA20DFE9B5009CEB92 /* UIImageView+ext.h */,
@@ -253,6 +263,8 @@
 				72AB4C2420D350F800838B96 /* UserNotificationManager.m */,
 				A40046A520E1120600269E1D /* VideoPlayer.h */,
 				A40046A620E1120600269E1D /* VideoPlayer.m */,
+				A4FC0A4D20E269A200DCD90C /* VideoRecorder.h */,
+				A4FC0A4C20E269A200DCD90C /* VideoRecorder.m */,
 			);
 			path = System;
 			sourceTree = "<group>";
@@ -267,14 +279,15 @@
 		72ED683320D4B34700E00775 /* CustomView */ = {
 			isa = PBXGroup;
 			children = (
+				A4FC0A5720E26BA000DCD90C /* ARMenuViewCell.h */,
+				A4FC0A5520E26B9F00DCD90C /* ARMenuViewCell.m */,
+				A4FC0A5620E26BA000DCD90C /* ARMenuViewCell.xib */,
 				72F3C14720D51A4E00E328AC /* CardView.h */,
 				72F3C14820D51A4E00E328AC /* CardView.m */,
 				A4465FC920DFE6EB009CEB92 /* LoginViewDelegate.h */,
 				72ED683720D4B3B000E00775 /* LoginView.h */,
 				72ED683820D4B3B000E00775 /* LoginView.m */,
 				72ED683A20D4B3BA00E00775 /* LoginView.xib */,
-				A4FC0A4A20E2690B00DCD90C /* UIView+ext.h */,
-				A4FC0A4920E2690B00DCD90C /* UIView+ext.m */,
 			);
 			path = CustomView;
 			sourceTree = "<group>";
@@ -342,11 +355,11 @@
 		72F04C1520BAA45E00DA34D2 /* ScreenOn */ = {
 			isa = PBXGroup;
 			children = (
+				72F04C2220BAA46000DA34D2 /* Assets.xcassets */,
 				724023B620C2B84000CBFD0C /* Config */,
 				72F04C4B20BAA46B00DA34D2 /* Model */,
 				722202D620C2BBDA00B7C77C /* View */,
 				72F1F11620BC52B600ACF7BA /* Controller */,
-				72F04C2220BAA46000DA34D2 /* Assets.xcassets */,
 			);
 			path = ScreenOn;
 			sourceTree = "<group>";
@@ -539,6 +552,7 @@
 				72F04C2320BAA46000DA34D2 /* Assets.xcassets in Resources */,
 				72F04C1E20BAA45E00DA34D2 /* Main.storyboard in Resources */,
 				72ED683B20D4B3BA00E00775 /* LoginView.xib in Resources */,
+				A4FC0A5920E26BA100DCD90C /* ARMenuViewCell.xib in Resources */,
 				72CFF57B20CBB4780054C564 /* google.plist in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -647,6 +661,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				A4FC0A5120E26A6C00DCD90C /* RoundedButton.m in Sources */,
 				72EFD5B420D3BDBB00B1E3AA /* TopRateViewController.m in Sources */,
 				72EFAFE420D39ACA00FF5352 /* UIViewController+ext.m in Sources */,
 				72F3C14920D51A4E00E328AC /* CardView.m in Sources */,
@@ -660,8 +675,8 @@
 				72EF357D20C2B2D50047B935 /* CoreDataManager.m in Sources */,
 				A40046AD20E1325900269E1D /* KeychainManager.m in Sources */,
 				72EE7B2F20D77752006C7C43 /* SCNNode+ext.m in Sources */,
+				A4FC0A5820E26BA100DCD90C /* ARMenuViewCell.m in Sources */,
 				72EF358320C2B3270047B935 /* CaptureManager.m in Sources */,
-				A4FC0A4B20E2690B00DCD90C /* UIView+ext.m in Sources */,
 				72AB4C2520D350F800838B96 /* UserNotificationManager.m in Sources */,
 				721816D620C382AD00207647 /* NSDate+ext.m in Sources */,
 				72EFAFE120D39A3E00FF5352 /* AdmobViewController.m in Sources */,
@@ -672,10 +687,11 @@
 				A400469F20E1107F00269E1D /* AppDelegate.m in Sources */,
 				72F04C2920BAA46000DA34D2 /* main.m in Sources */,
 				72ED683920D4B3B000E00775 /* LoginView.m in Sources */,
+				A4FC0A4E20E269A200DCD90C /* VideoRecorder.m in Sources */,
 				72EFD5B120D3BAAD00B1E3AA /* TabBarController.m in Sources */,
-				72EE7B3220D77BC7006C7C43 /* ARSCNView+ext.m in Sources */,
 				A40046A720E1120600269E1D /* VideoPlayer.m in Sources */,
 				72AB4C2E20D35FF800838B96 /* UIView+ext.m in Sources */,
+				A4FC0A5420E26AB300DCD90C /* ARSCNView+ext.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
