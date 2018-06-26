@@ -45,7 +45,7 @@
 
 #pragma popover view controller handling
 
-- (void) popoverWithViewController:(UIViewController *)viewCtrl ForView:(UIView *)sender InSize:(CGSize)size InDirection:(UIPopoverArrowDirection)direction {
+- (void) popoverWithViewController:(UIViewController * _Nonnull)viewCtrl ForView:(UIView * _Nonnull)sender InSize:(CGSize)size InDirection:(UIPopoverArrowDirection)direction {
     if (@available(iOS 8, *)) {
         viewCtrl.modalPresentationStyle = UIModalPresentationPopover;
         viewCtrl.preferredContentSize = size;

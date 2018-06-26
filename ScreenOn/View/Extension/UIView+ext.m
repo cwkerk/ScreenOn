@@ -10,11 +10,11 @@
 
 @implementation UIView (ext)
 
--(UIActivityIndicatorView *)loader {
+- (UIActivityIndicatorView *)loader {
     return objc_getAssociatedObject(self, loaderKey);
 }
 
--(void)setLoader:(UIActivityIndicatorView *)loader {
+- (void)setLoader:(UIActivityIndicatorView *)loader {
     objc_setAssociatedObject(self, loaderKey, self.loader, OBJC_ASSOCIATION_RETAIN_NONATOMIC);
 }
 

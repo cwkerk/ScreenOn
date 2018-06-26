@@ -12,10 +12,10 @@
 
 - (void)showContentViewController:(UIViewController* _Nonnull)vc underRect:(CGRect)rect inView:(UIView * _Nonnull)view;
 
-- (void) hideContentViewController:(UIViewController* _Nonnull)vc;
+- (void)hideContentViewController:(UIViewController* _Nonnull)vc;
 
 - (void)swapContenViewControllersFrom:(UIViewController* _Nonnull)from to:(UIViewController* _Nonnull)to inView:(UIView * _Nonnull)view animateWith:(UIViewAnimationOptions)opt;
 
-- (void) popoverWithViewController:(UIViewController *)viewCtrl ForView:(UIView *)sender InSize:(CGSize)size InDirection:(UIPopoverArrowDirection)direction;
+- (void) popoverWithViewController:(UIViewController * _Nonnull)viewCtrl ForView:(UIView * _Nonnull)sender InSize:(CGSize)size InDirection:(UIPopoverArrowDirection)direction;
 
 @end

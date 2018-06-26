@@ -10,6 +10,7 @@
 #import <SceneKit/SceneKit.h>
 #import "ARMenuViewController.h"
 #import "ARMenuViewControllerDelegate.h"
+#import "AudioPlayer.h"
 #import "NSDate+ext.h"
 #import "RoundedButton.h"
 #import "VideoPlayer.h"
@@ -39,6 +40,8 @@
 @property (strong, nonatomic, readonly) ARSCNView *arScnView NS_AVAILABLE_IOS(11.0);
 
 @property (strong, nonatomic, readonly) SCNNode *panningNode NS_AVAILABLE_IOS(11.0);
+
+@property (strong, nonatomic, readonly) AudioPlayer *audioPlayer;
 
 @property (strong, nonatomic, readonly) VideoRecorder *recorder;
 

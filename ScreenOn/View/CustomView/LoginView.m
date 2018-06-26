@@ -16,6 +16,7 @@
     [self.fbLoginBtn setBackgroundColor:UIColor.clearColor];
     [self.fbLoginBtn setReadPermissions:@[@"email", @"public_profile"]];
     [self.pinterestLoginBtn.layer setCornerRadius:3.0];
+    //[self.pinterestLoginBtn.imageView setTintColor:UIColor.whiteColor];
 }
 
 - (void)drawRect:(CGRect)rect {

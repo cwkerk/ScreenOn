@@ -48,6 +48,8 @@
 		A4FC0A6020E26D1500DCD90C /* ARMenuViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = A4FC0A5E20E26D1500DCD90C /* ARMenuViewController.m */; };
 		A4FC0A6420E26EDD00DCD90C /* MenuItem.m in Sources */ = {isa = PBXBuildFile; fileRef = A4FC0A6320E26EDD00DCD90C /* MenuItem.m */; };
 		A4FC0A6720E26FF400DCD90C /* ARViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = A4FC0A6520E26FF400DCD90C /* ARViewController.m */; };
+		A4FC0A6A20E2846800DCD90C /* AudioPlayer.m in Sources */ = {isa = PBXBuildFile; fileRef = A4FC0A6920E2846800DCD90C /* AudioPlayer.m */; };
+		A4FC0A6F20E2897D00DCD90C /* alert.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = A4FC0A6E20E2897D00DCD90C /* alert.mp3 */; };
 		AEC5D61B923CC126D927F817 /* libPods-ScreenOnTests.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 000EE2E0697B2606E5CA6249 /* libPods-ScreenOnTests.a */; };
 /* End PBXBuildFile section */
 
@@ -151,6 +153,9 @@
 		A4FC0A6320E26EDD00DCD90C /* MenuItem.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = MenuItem.m; sourceTree = "<group>"; };
 		A4FC0A6520E26FF400DCD90C /* ARViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ARViewController.m; sourceTree = "<group>"; };
 		A4FC0A6620E26FF400DCD90C /* ARViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ARViewController.h; sourceTree = "<group>"; };
+		A4FC0A6820E2846800DCD90C /* AudioPlayer.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AudioPlayer.h; sourceTree = "<group>"; };
+		A4FC0A6920E2846800DCD90C /* AudioPlayer.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AudioPlayer.m; sourceTree = "<group>"; };
+		A4FC0A6E20E2897D00DCD90C /* alert.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = alert.mp3; sourceTree = "<group>"; };
 		B4FBDDAAFA8ED0985C05833B /* libPods-ScreenOn.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-ScreenOn.a"; sourceTree = BUILT_PRODUCTS_DIR; };
 		F5A73F95CEDD1DA09F0E0BDE /* Pods-ScreenOnUITests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-ScreenOnUITests.release.xcconfig"; path = "Pods/Target Support Files/Pods-ScreenOnUITests/Pods-ScreenOnUITests.release.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -261,6 +266,8 @@
 			children = (
 				72AB4C2320D350F800838B96 /* UserNotificationManager.h */,
 				72AB4C2420D350F800838B96 /* UserNotificationManager.m */,
+				A4FC0A6820E2846800DCD90C /* AudioPlayer.h */,
+				A4FC0A6920E2846800DCD90C /* AudioPlayer.m */,
 				A40046A520E1120600269E1D /* VideoPlayer.h */,
 				A40046A620E1120600269E1D /* VideoPlayer.m */,
 				A4FC0A4D20E269A200DCD90C /* VideoRecorder.h */,
@@ -361,7 +368,7 @@
 		72F04C1520BAA45E00DA34D2 /* ScreenOn */ = {
 			isa = PBXGroup;
 			children = (
-				72F04C2220BAA46000DA34D2 /* Assets.xcassets */,
+				A4FC0A6B20E285A900DCD90C /* Asset */,
 				724023B620C2B84000CBFD0C /* Config */,
 				72F04C4B20BAA46B00DA34D2 /* Model */,
 				722202D620C2BBDA00B7C77C /* View */,
@@ -406,7 +413,6 @@
 			children = (
 				72F04C2820BAA46000DA34D2 /* main.m */,
 				72AB4C1E20D34B2800838B96 /* AppDelegate */,
-				72EFD5AE20D3BA6A00B1E3AA /* ContainerController */,
 				72F1F11720BC52BD00ACF7BA /* ViewController */,
 			);
 			path = Controller;
@@ -415,6 +421,7 @@
 		72F1F11720BC52BD00ACF7BA /* ViewController */ = {
 			isa = PBXGroup;
 			children = (
+				72EFD5AE20D3BA6A00B1E3AA /* ContainerController */,
 				A4FC0A5A20E26CAA00DCD90C /* Extension */,
 				A4465FCD20DFE9F7009CEB92 /* LoginViewController.h */,
 				A40046A020E110CE00269E1D /* LoginViewController.m */,
@@ -442,6 +449,15 @@
 				A4FC0A6320E26EDD00DCD90C /* MenuItem.m */,
 			);
 			path = DataStruct;
+			sourceTree = "<group>";
+		};
+		A4FC0A6B20E285A900DCD90C /* Asset */ = {
+			isa = PBXGroup;
+			children = (
+				A4FC0A6E20E2897D00DCD90C /* alert.mp3 */,
+				72F04C2220BAA46000DA34D2 /* Assets.xcassets */,
+			);
+			path = Asset;
 			sourceTree = "<group>";
 		};
 		BB1FE5AC49F01570E60F9C69 /* Pods */ = {
@@ -571,6 +587,7 @@
 				A4FC0A5920E26BA100DCD90C /* ARMenuViewCell.xib in Resources */,
 				72CFF57B20CBB4780054C564 /* google.plist in Resources */,
 				A4FC0A5F20E26D1500DCD90C /* ARMenuViewController.xib in Resources */,
+				A4FC0A6F20E2897D00DCD90C /* alert.mp3 in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -707,6 +724,7 @@
 				72EFD5B120D3BAAD00B1E3AA /* TabBarController.m in Sources */,
 				A40046A720E1120600269E1D /* VideoPlayer.m in Sources */,
 				72AB4C2E20D35FF800838B96 /* UIView+ext.m in Sources */,
+				A4FC0A6A20E2846800DCD90C /* AudioPlayer.m in Sources */,
 				A4FC0A5420E26AB300DCD90C /* ARSCNView+ext.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

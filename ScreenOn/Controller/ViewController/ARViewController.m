@@ -17,17 +17,22 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     if (@available(iOS 11.0, *)) {
-        self->_arScnView = [[ARSCNView alloc] initWithFrame:self.view.bounds];
-        [self.arScnView setDelegate:self];
-        [self.view addSubview:self.arScnView];
-        [self.view bringSubviewToFront:self.menuButton];
-        UIPanGestureRecognizer *pan = [[UIPanGestureRecognizer alloc] initWithTarget:self action:@selector(panGestureHandler:)];
-        UITapGestureRecognizer *tap = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(tapGestureHandler:)];
-        [self.arScnView addGestureRecognizer:pan];
-        [self.arScnView addGestureRecognizer:tap];
-        [[RPScreenRecorder sharedRecorder] setDelegate:self];
+        if ([ARWorldTrackingConfiguration isSupported]) {
+            self->_arScnView = [[ARSCNView alloc] initWithFrame:self.view.bounds];
+            [self.arScnView setDelegate:self];
+            [self.view addSubview:self.arScnView];
+            [self.view bringSubviewToFront:self.menuButton];
+            UIPanGestureRecognizer *pan = [[UIPanGestureRecognizer alloc] initWithTarget:self action:@selector(panGestureHandler:)];
+            UITapGestureRecognizer *tap = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(tapGestureHandler:)];
+            [self.arScnView addGestureRecognizer:pan];
+            [self.arScnView addGestureRecognizer:tap];
+            self->_audioPlayer = [[AudioPlayer alloc] init];
+            [[RPScreenRecorder sharedRecorder] setDelegate:self];
+        } else {
+            [self exitViewController];
+        }
     } else {
-        [self.navigationController popViewControllerAnimated:YES];
+        [self exitViewController];
     }
 }
 
@@ -55,6 +60,22 @@
 }
 
 #pragma private functions
+
+- (void)exitViewController {
+    UIAlertController *alert = [UIAlertController alertControllerWithTitle:@"System error" message:@"This device do not support Augment Reality features" preferredStyle:UIAlertControllerStyleAlert];
+    UIAlertAction *ok = [UIAlertAction actionWithTitle:@"OK" style:UIAlertActionStyleDefault handler:^(UIAlertAction * _Nonnull action) {
+        if ([self isEqual:UIApplication.sharedApplication.delegate.window.rootViewController]) {
+            exit(0);
+        } else if (self.navigationController != nil) {
+            [self.navigationController popViewControllerAnimated:YES];
+        } else {
+            [self dismissViewControllerAnimated:YES completion:nil];
+        }
+    }];
+    [alert addAction:ok];
+    [self presentViewController:alert animated:YES completion:nil];
+    [self.audioPlayer playAudio:@"alert" audioType:@"mp3"];
+}
 
 - (void)panGestureHandler:(UIPanGestureRecognizer *)sender {
     if (@available(iOS 11.0, *)) {
@@ -91,6 +112,7 @@
             [alert addAction:proceed];
             [alert addAction:[UIAlertAction actionWithTitle:@"Cancel" style:UIAlertActionStyleCancel handler:nil]];
             [self presentViewController:alert animated:YES completion:nil];
+            [self.audioPlayer playAudio:@"alert" audioType:@"mp3"];
         }
     }
 }
@@ -145,17 +167,28 @@
 
 - (NSArray<MenuItem *> * _Nonnull)getMenuItems {
     MenuItem *itemA = [[MenuItem alloc] init];
-    itemA.imageName = @"Camera";
+    itemA.imageName = @"FaceDetect";
     itemA.onSelectHandler = ^{
-        NSLog(@"handler A is calling!!!");
+        if (@available(iOS 11.0, *)) {
+            if ([ARFaceTrackingConfiguration isSupported]) {
+                ARFaceTrackingConfiguration *config = [[ARFaceTrackingConfiguration alloc] init];
+                [config setProvidesAudioData:YES];
+                [config setLightEstimationEnabled:YES];
+                [self.arScnView.session pause];
+                [self.arScnView.session runWithConfiguration:config options:ARSessionRunOptionResetTracking | ARSessionRunOptionRemoveExistingAnchors];
+            } else {
+                // TODO: alert for failure
+            }
+        }
     };
     MenuItem *itemB = [[MenuItem alloc] init];
     itemB.imageName = @"Record";
     itemB.onSelectHandler = ^{
         NSLog(@"handler B is calling!!!");
+        [self.audioPlayer playAudio:@"alert" audioType:@"mp3"];
     };
     MenuItem *itemC = [[MenuItem alloc] init];
-    itemC.imageName = @"FaceDetect";
+    itemC.imageName = @"Camera";
     itemC.onSelectHandler = ^{
         NSLog(@"handler C is calling!!!");
     };
