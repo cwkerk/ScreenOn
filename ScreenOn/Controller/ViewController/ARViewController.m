@@ -50,7 +50,8 @@
 
 - (IBAction)openMenu:(id)sender {
     ARMenuViewController *menu = [[ARMenuViewController alloc] init];
-    [self popoverWithViewController:menu ForView:self.menuButton InSize:CGSizeMake(self.view.bounds.size.width, 64) InDirection:UIPopoverArrowDirectionUp];
+    [menu setDelegate:self];
+    [self popoverWithViewController:menu ForView:self.menuButton InSize:CGSizeMake(self.view.bounds.size.width, 84) InDirection:UIPopoverArrowDirectionUp];
 }
 
 #pragma private functions
@@ -145,9 +146,20 @@
 - (NSArray<MenuItem *> * _Nonnull)getMenuItems {
     MenuItem *itemA = [[MenuItem alloc] init];
     itemA.imageName = @"Camera";
+    itemA.onSelectHandler = ^{
+        NSLog(@"handler A is calling!!!");
+    };
     MenuItem *itemB = [[MenuItem alloc] init];
     itemB.imageName = @"Record";
-    NSArray<MenuItem *> *list = [NSArray arrayWithObjects:itemA, itemB, nil];
+    itemB.onSelectHandler = ^{
+        NSLog(@"handler B is calling!!!");
+    };
+    MenuItem *itemC = [[MenuItem alloc] init];
+    itemC.imageName = @"FaceDetect";
+    itemC.onSelectHandler = ^{
+        NSLog(@"handler C is calling!!!");
+    };
+    NSArray<MenuItem *> *list = [NSArray arrayWithObjects:itemA, itemB, itemC, nil];
     return list;
 }
 

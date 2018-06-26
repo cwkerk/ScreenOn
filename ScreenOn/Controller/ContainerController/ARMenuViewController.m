@@ -16,10 +16,10 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-    [self.scrollView setContentSize:CGSizeMake(1000, 64)];
+    [self.scrollView setContentSize:CGSizeMake(1000, 84)];
     self->_cellId = @"menuItem";
     UICollectionViewFlowLayout *layout = [[UICollectionViewFlowLayout alloc] init];
-    self->_collectionView = [[UICollectionView alloc] initWithFrame:CGRectMake(0, 0, 1000, 64) collectionViewLayout:layout];
+    self->_collectionView = [[UICollectionView alloc] initWithFrame:CGRectMake(0, 0, 1000, 84) collectionViewLayout:layout];
     [self.collectionView setBackgroundColor:[UIColor colorWithWhite:1.0 alpha:0.5]];
     [self.collectionView registerNib:[UINib nibWithNibName:@"ARMenuViewCell" bundle:nil] forCellWithReuseIdentifier:self.cellId];
     [self.collectionView setDataSource:self];
@@ -36,6 +36,10 @@
     return 1;
 }
 
+- (UIEdgeInsets)collectionView:(UICollectionView *)collectionView layout:(UICollectionViewLayout *)collectionViewLayout insetForSectionAtIndex:(NSInteger)section {
+    return UIEdgeInsetsZero;
+}
+
 #pragma cell level config
 
 - (NSInteger)collectionView:(UICollectionView *)collectionView numberOfItemsInSection:(NSInteger)section {
@@ -48,8 +52,20 @@
     return cell;
 }
 
+- (void)collectionView:(UICollectionView *)collectionView didSelectItemAtIndexPath:(NSIndexPath *)indexPath {
+    self.menuItems[indexPath.row].onSelectHandler();
+}
+
 - (CGSize)collectionView:(UICollectionView *)collectionView layout:(UICollectionViewLayout *)collectionViewLayout sizeForItemAtIndexPath:(NSIndexPath *)indexPath {
     return CGSizeMake(64, 64);
+}
+
+- (CGFloat)collectionView:(UICollectionView *)collectionView layout:(UICollectionViewLayout *)collectionViewLayout minimumLineSpacingForSectionAtIndex:(NSInteger)section {
+    return 10;
+}
+
+- (CGFloat)collectionView:(UICollectionView *)collectionView layout:(UICollectionViewLayout *)collectionViewLayout minimumInteritemSpacingForSectionAtIndex:(NSInteger)section {
+    return 10;
 }
 
 @end
