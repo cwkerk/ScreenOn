@@ -44,6 +44,7 @@
 		A40046AA20E12CB100269E1D /* MainTabItemViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = A40046A920E12CB100269E1D /* MainTabItemViewController.m */; };
 		A40046AD20E1325900269E1D /* KeychainManager.m in Sources */ = {isa = PBXBuildFile; fileRef = A40046AC20E1325900269E1D /* KeychainManager.m */; };
 		A4465FCC20DFE9B6009CEB92 /* UIImageView+ext.m in Sources */ = {isa = PBXBuildFile; fileRef = A4465FCB20DFE9B6009CEB92 /* UIImageView+ext.m */; };
+		A4FC0A4B20E2690B00DCD90C /* UIView+ext.m in Sources */ = {isa = PBXBuildFile; fileRef = A4FC0A4920E2690B00DCD90C /* UIView+ext.m */; };
 		AEC5D61B923CC126D927F817 /* libPods-ScreenOnTests.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 000EE2E0697B2606E5CA6249 /* libPods-ScreenOnTests.a */; };
 /* End PBXBuildFile section */
 
@@ -140,6 +141,8 @@
 		A4465FCA20DFE9B5009CEB92 /* UIImageView+ext.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIImageView+ext.h"; sourceTree = "<group>"; };
 		A4465FCB20DFE9B6009CEB92 /* UIImageView+ext.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIImageView+ext.m"; sourceTree = "<group>"; };
 		A4465FCD20DFE9F7009CEB92 /* LoginViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LoginViewController.h; sourceTree = "<group>"; };
+		A4FC0A4920E2690B00DCD90C /* UIView+ext.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIView+ext.m"; sourceTree = "<group>"; };
+		A4FC0A4A20E2690B00DCD90C /* UIView+ext.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIView+ext.h"; sourceTree = "<group>"; };
 		B4FBDDAAFA8ED0985C05833B /* libPods-ScreenOn.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-ScreenOn.a"; sourceTree = BUILT_PRODUCTS_DIR; };
 		F5A73F95CEDD1DA09F0E0BDE /* Pods-ScreenOnUITests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-ScreenOnUITests.release.xcconfig"; path = "Pods/Target Support Files/Pods-ScreenOnUITests/Pods-ScreenOnUITests.release.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -270,6 +273,8 @@
 				72ED683720D4B3B000E00775 /* LoginView.h */,
 				72ED683820D4B3B000E00775 /* LoginView.m */,
 				72ED683A20D4B3BA00E00775 /* LoginView.xib */,
+				A4FC0A4A20E2690B00DCD90C /* UIView+ext.h */,
+				A4FC0A4920E2690B00DCD90C /* UIView+ext.m */,
 			);
 			path = CustomView;
 			sourceTree = "<group>";
@@ -656,6 +661,7 @@
 				A40046AD20E1325900269E1D /* KeychainManager.m in Sources */,
 				72EE7B2F20D77752006C7C43 /* SCNNode+ext.m in Sources */,
 				72EF358320C2B3270047B935 /* CaptureManager.m in Sources */,
+				A4FC0A4B20E2690B00DCD90C /* UIView+ext.m in Sources */,
 				72AB4C2520D350F800838B96 /* UserNotificationManager.m in Sources */,
 				721816D620C382AD00207647 /* NSDate+ext.m in Sources */,
 				72EFAFE120D39A3E00FF5352 /* AdmobViewController.m in Sources */,
