@@ -11,7 +11,7 @@
 @implementation NSPersistentStoreCoordinator (ext)
 
 - (instancetype)coordinatorWithName:(NSString *)name WithExt:(NSString *)ext {
-    NSURL *dataModelUrl = [NSBundle.mainBundle URLForResource:name withExtension:@"momd"];
+    NSURL *dataModelUrl = [NSBundle.mainBundle URLForResource:name withExtension:ext];
     NSManagedObjectModel *dataModel = [[NSManagedObjectModel alloc] initWithContentsOfURL:dataModelUrl];
     NSPersistentStoreCoordinator *persistentStoreCoordinator = [[NSPersistentStoreCoordinator alloc] initWithManagedObjectModel:dataModel];
     NSURL *url = [[[[NSFileManager defaultManager] URLsForDirectory:NSDocumentDirectory inDomains:NSUserDomainMask] objectAtIndex:0] URLByAppendingPathComponent:[name stringByAppendingString:ext]];
